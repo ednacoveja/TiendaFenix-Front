@@ -13,7 +13,7 @@ import { cyan, grey, teal } from '@mui/material/colors';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import accounting from "accounting"
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteItem, deleteUserCarritoItem, getUserLoged } from "../redux/actions"
+import { deleteItem } from "../redux/actions"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
@@ -29,7 +29,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function CardCarrito({ id, name, rating, description, image, type, price,userLoged }) {
+export default function CardCarrito({ id, name, rating, description, image, type, price }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -39,11 +39,7 @@ export default function CardCarrito({ id, name, rating, description, image, type
     const dispatch = useDispatch();
 
     const deleteProduct = (id) => {
-        if (userLoged) {
-            dispatch(deleteUserCarritoItem(id, userLoged));
-        } else {
-            dispatch(deleteItem(id));
-        }
+        dispatch(deleteItem(id));
     };
 
     return (

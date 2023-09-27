@@ -1,39 +1,63 @@
-export const initialState = {
-    basket: []
-}
+const initialState = {
+    productos: [],
+    allProducts: [],
+    users: [],
+    carrito: [],
+};
 
-export const actionTypes = {
-    ADD_TO_BASKET: "ADD_TO_BASKET",
-    DELETE_ITEM: "DELETE_ITEM"
-}
-
-export const getTotal=(array)=>{
-    array?.reduce((acc,item)=>item.price + acc,0)
-}
-
-const reducer = (state, action) => {
-    console.log(action)
+const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "ADD_TO_BASKET":
+        case "ADD_TO_CARRITO":
+            const item = action.payload;
             return {
                 ...state,
-                basket: [...state.basket, action.item],
-            }
+                carrito: [...state.carrito, item],
+            };
+
+        case "CLEAR_CARRITO":
+            return {
+                ...state,
+                carrito: [],
+            };
         case "DELETE_ITEM":
-            const index = state.basket.findIndex((item => item.id === action.id))
-            let newBasket = [...state.basket]
+            const del = action.payload;
+            const compra = state.carrito || [];
+            const index = compra.findIndex((i) => i._id === del)
+            let newArray = [...state.carrito]
             if (index >= 0) {
-                newBasket.splice(index, 1)
-            } else {
-                console.log("no se puede borrar")
+                newArray.splice(index, 1)
             }
-
             return {
                 ...state,
-                basket: newBasket,
+                carrito: newArray,
+            };
+   
+        case "GET_PRODUCTS":
+            return {
+                ...state,
+                productos: action.payload,
+                allProducts: action.payload,
             }
-        default: return state
-    }
-}
+        case "CREATE_POST":
+            console.log(action.payload);
+            return {
+                productos: [action.payload, ...state.productos],
+            };
+        case "DELETE_POST":
+            alert(action.payload.data);
+            const allposteos = state.productos
+            const filter = allposteos.filter(el => el._id !== action.payload.id)
+            return {
+                ...state,
+                productos: filter,
+            };
 
-export default reducer
+
+        default:
+            return {
+                ...state,
+            };
+    }
+};
+
+export default rootReducer;

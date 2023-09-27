@@ -42,28 +42,6 @@ export function deleteItem(id) {
   }
 }
 
-export function deleteUserCarritoItem(id, userLoged) {
-  return async function (dispatch) {
-    try {
-      // Actualizar el carrito en el estado de Redux
-      const userIndex = userLoged.carrito.findIndex((item) => item._id === id);
-      const newUserCarrito = userLoged.carrito
-      if (userIndex >= 0) {
-        newUserCarrito.splice(userIndex, 1);
-      }
-      dispatch({ type: "SET_USER", payload: { ...userLoged, carrito: newUserCarrito } });
-
-      // Actualizar el carrito en la base de datos
-      const updatedUser = {
-        carrito: newUserCarrito,
-      };
-      const response = await axios.put(`/users/${userLoged._id}`, updatedUser);
-      dispatch({ type: "EDIT_USER", payload: response.data });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
 
 export function getProductos() {
   try {
@@ -102,69 +80,3 @@ export function deletePost(id) {
   }
 }
 
-export function createUser(payload) {
-  try {
-    return async function (dispatch) {
-      const response = await axios.post("/users", payload);
-      return dispatch({ type: "CREATE_USER", payload: response.data });
-    };
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-export function getUsers() {
-  try {
-    return async function (dispatch) {
-      var response = await axios.get("/users");
-      return dispatch({ type: "GET_USERS", payload: response.data });
-    };
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-export function getUserLoged(email) {
-  try {
-    if (email) {
-      return async function (dispatch) {
-        var response = await axios.get(`/users?email=${encodeURIComponent(email)}`)
-        const userLoged = response.data.length > 0 ? response.data[0] : null;
-        dispatch({ type: 'SET_USER', payload: userLoged })
-        dispatch({ type: 'SET_LOGGED_IN', payload: userLoged !== null })
-      }
-    } else {
-      return async function (dispatch) {
-        dispatch({ type: 'SET_USER', payload: null })
-        dispatch({ type: 'SET_LOGGED_IN', payload: false })
-      }
-    }
-  } catch (e) {
-    console.log(e);
-  }
-}
-
-export const editUser = (form) => async (dispatch) => {
-  try {
-    const updatedUser = {
-      _id: form._id,
-      carrito: form.carrito,
-    };
-
-    const response = await axios.put(`/users/${form._id}`, updatedUser);
-    dispatch({ type: "EDIT_USER", payload: response.data });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-export function deleteUser(id) {
-  try {
-    return async function (dispatch) {
-      var response = await axios.delete("/users/" + id);
-      return dispatch({ type: "DELETE_USER", payload: response.data });
-    };
-  } catch (e) {
-    console.log(e);
-  }
-}

@@ -1,13 +1,15 @@
 import { Routes, Route } from "react-router-dom";
 import Carrito from "./componentes/Carrito.jsx";
 import Products from "./componentes/Products.jsx";
+import { Landing } from "./componentes/Landing.jsx";
 
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/home" element={<Products />}/> 
+        <Route exact path="/" element={<Landing />} />
+        <Route path="/home" element={<Products />} />
         <Route path="/carrito" element={<Carrito />} />
       </Routes>
     </div>

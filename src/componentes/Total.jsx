@@ -64,8 +64,8 @@ export const Total = () => {
 
     return (
         <div style={clases.root}>
-            <h5>Total items: {isLoggedIn ? compraLogin.length : compra.length}</h5>
-            <h5>{isLoggedIn ? accounting.formatMoney(sumaLogin, "$", 0) : accounting.formatMoney(suma, "$", 0)}</h5>
+            <h5>Total items: {compra.length}</h5>
+            <h5>{accounting.formatMoney(suma, "$", 0)}</h5>
             <Button style={clases.button} variant="contained" color='error' onClick={() => setDialogOpen(true)}>
                 Contactar por WhatsApp
             </Button>
