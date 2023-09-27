@@ -10,11 +10,11 @@ import Avatar from '@mui/material/Avatar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import { cyan, grey, teal } from '@mui/material/colors';
-import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import accounting from "accounting"
-import { useDispatch } from 'react-redux';
-import {addToCarrito} from "../redux/actions"
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteItem, deleteUserCarritoItem, getUserLoged } from "../redux/actions"
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
 
@@ -29,19 +29,22 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Product({ id, name, rating, description, image, type, price,userLoged }) {
+export default function CardCarrito({ id, name, rating, description, image, type, price,userLoged }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
 
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
 
-    const addToBasket = (id) => {
-        dispatch(addToCarrito(id,userLoged))
-    }
-
+    const deleteProduct = (id) => {
+        if (userLoged) {
+            dispatch(deleteUserCarritoItem(id, userLoged));
+        } else {
+            dispatch(deleteItem(id));
+        }
+    };
 
     return (
         <Card sx={{ maxWidth: 345, backgroundColor: "black" }} >
@@ -94,8 +97,8 @@ export default function Product({ id, name, rating, description, image, type, pr
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to Cart" onClick={()=>addToBasket(id)} >
-                    <AddShoppingCart fontSize="large" sx={{ color: 'white' }} />
+                <IconButton aria-label="add to Cart" onClick={() => deleteProduct(id)} >
+                    <DeleteOutlineIcon fontSize="large" sx={{ color: 'white' }} />
                 </IconButton>
                 {Array(rating)
                     .fill()

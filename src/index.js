@@ -1,21 +1,33 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { StateProvider } from './redux/stateProvider';
-import reducer, { initialState } from './redux/reducer';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import {persistor} from './redux/store';
+import {PersistGate} from 'redux-persist/lib/integration/react';
+import store from "./redux/store";
+import axios from "axios";
+import { QueryClient, QueryClientProvider } from 'react-query'
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const queryClient = new QueryClient()
+axios.defaults.baseURL = "https://fenix-back.ednacoveja.repl.co";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
 root.render(
-  <React.StrictMode>
-    <StateProvider initialState={initialState} reducer={reducer}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-    </StateProvider>
-  </React.StrictMode>
+  <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <React.StrictMode>
+        <QueryClientProvider client={queryClient}>
+           <BrowserRouter>
+             <App />
+           </BrowserRouter>
+          </QueryClientProvider>
+        </React.StrictMode>
+      </PersistGate>
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

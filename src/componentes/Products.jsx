@@ -1,31 +1,38 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import Product from './Product';
-import products from "../productsData"
+import Navbar from './Navbar';
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductos,getUserLoged } from '../redux/actions';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-}));
 
 export default function Products() {
+  const dispatch = useDispatch();
+  const allProducts = useSelector((state) => state.productos);
+  const userLoged = useSelector((state) => state.UserLoged);
+
+  useEffect(() => {
+    dispatch(getProductos())
+    dispatch(getUserLoged ())
+  }, [dispatch]);
+
   return (
-    <Box sx={{ flexGrow: 1 }} padding={10} style={{ backgroundColor: "black" }}>
-      <Grid container spacing={2}>
-        {
-          products.map(p => (
-            <Grid item xs={12} sm={6} md={5} lg={4}>
-              <Product key={p.id} product={p} />
-            </Grid>
-          ))
-        }
-      </Grid>
-    </Box>
+    <body>
+      <Navbar />
+      <Box sx={{ flexGrow: 1 }} padding={10} style={{ backgroundColor: "black" }}>
+        <Grid container spacing={2}>
+          {allProducts && allProducts.map((p) => {
+            return (
+              <Grid item xs={12} sm={6} md={5} lg={4}>
+                <Product id={p._id} name={p.name} rating={p.rating} price={p.price} description={p.description} image={p.image} type={p.type} userLoged={userLoged}/>
+              </Grid>
+            )
+          })}
+        </Grid>
+      </Box>
+
+    </body>
   );
 }
