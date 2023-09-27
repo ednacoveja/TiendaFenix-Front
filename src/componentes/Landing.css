@@ -1,6 +1,8 @@
 body {
     margin: 0;
+    background-color:navajowhite;
 }
+
 .landing {
     overflow: hidden;
     padding-top: 4%;
@@ -19,7 +21,6 @@ body {
     height: 70px;
     font-size: 37px;
     color: white;
-
 }
 
 .btnCreCu {
@@ -48,4 +49,33 @@ body {
     width: 100%;
     display: grid;
     grid-template-columns: 80% 20%;
+}
+
+@media screen and (max-width:540px) {
+
+    /* Aplica estilos diferentes cuando la pantalla es más grande que 768px de ancho */
+    .landArribaCont {
+        flex-direction: row;
+        /* Cambia a una disposición en fila */
+        justify-content: space-between;
+        /* Distribuye los elementos en el espacio disponible */
+        align-items: center;
+    }
+
+    .btnCreCu {
+        /* Otros estilos */
+
+        width: 100%;
+        /* Ocupa todo el ancho disponible en dispositivos pequeños */
+        margin: 10px 0;
+        /* Agrega margen en la parte superior e inferior para separar los botones */
+    }
+
+    .landing {
+        padding-top: 19%;
+        height: 40vh;
+        background-image: url('../../public/images/fenixBlack.png');
+        background-size: auto;
+    }
+
 }

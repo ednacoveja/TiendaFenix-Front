@@ -12,16 +12,6 @@ export const Landing = () => {
         navigate("/home");
     }
 
-    async function LogIn(e) {
-        e.preventDefault();
-        navigate("/signin");
-    }
-
-    async function LogUp(e) {
-        e.preventDefault();
-        navigate("/signup");
-    }
-
     return (
         <div className='landing'>
             <div className='landArribaCont'>
@@ -36,23 +26,9 @@ export const Landing = () => {
                 <div >
                 </div>
                 <div >
-                    <button className='btnCreCu' onClick={(e) => LogUp(e)}>Productores</button>
+                    <button className='btnCreCu' onClick={(e) => ALaHome(e)}>Productores</button>
                 </div>
             </div>
-            <div className='landArribaCont'>
-                <div >
-                </div>
-                <div >
-                    <button className='btnCreCu' onClick={(e) => LogUp(e)}>Crear Cuenta</button>
-                </div>
-            </div>
-            <div className='landArribaCont'>
-                <div></div>
-                <div >
-                    <button className='btnCreCu' onClick={(e) => LogIn(e)}>Ingresar</button>
-                </div>
-            </div>
-
         </div>
 
     )
