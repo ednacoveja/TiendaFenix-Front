@@ -3,10 +3,17 @@ const initialState = {
     allProducts: [],
     users: [],
     carrito: [],
+    categoriaSeleccionada: "",
 };
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
+        case "SET_CATEGORIA_SELECCIONADA":
+            return {
+                ...state,
+                categoriaSeleccionada: action.payload,
+            };
+
         case "ADD_TO_CARRITO":
             const item = action.payload;
             return {
@@ -31,7 +38,7 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 carrito: newArray,
             };
-   
+
         case "GET_PRODUCTS":
             return {
                 ...state,

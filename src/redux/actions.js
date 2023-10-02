@@ -1,6 +1,10 @@
 import axios from "axios";
 
 
+export const setCategoriasSeleccionada = (categoria) => ({
+  type: "SET_CATEGORIA_SELECCIONADA",
+  payload: categoria,
+});
 
 export function addToCarrito(idProduct, userLoged) {
   return async function (dispatch) {

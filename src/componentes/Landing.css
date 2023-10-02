@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color:navajowhite;
+    background-color:rgba(111, 215, 223, 0.705);
 }
 
 .landing {
@@ -23,6 +23,11 @@ body {
     color: white;
 }
 
+.info {
+    align-content: center;
+    font-size: 37px;
+    color: white;
+}
 .btnCreCu {
     all: unset;
     background-image: url('../../public/images/logoRedondo.png');
