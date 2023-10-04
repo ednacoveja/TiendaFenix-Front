@@ -1,10 +1,12 @@
 import axios from "axios";
 
 
-export const setCategoriasSeleccionada = (categoria) => ({
-  type: "SET_CATEGORIA_SELECCIONADA",
+export const filterByType = (categoria) => ({
+  type: "FILTER_TYPE",
   payload: categoria,
 });
+
+
 
 export function addToCarrito(idProduct, userLoged) {
   return async function (dispatch) {

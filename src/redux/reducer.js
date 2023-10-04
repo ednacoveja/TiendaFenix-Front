@@ -3,15 +3,20 @@ const initialState = {
     allProducts: [],
     users: [],
     carrito: [],
-    categoriaSeleccionada: "",
+    filtrosAplicados: []
 };
 
 const rootReducer = (state = initialState, action) => {
     switch (action.type) {
-        case "SET_CATEGORIA_SELECCIONADA":
+        case "FILTER_TYPE":
+            const productosOriginales = state.allProducts;
+
+            const productosFiltrados = productosOriginales.filter((p) =>
+                p.type.includes(action.payload)
+            );
             return {
                 ...state,
-                categoriaSeleccionada: action.payload,
+                productos: action.payload === "all" ? productosOriginales : productosFiltrados,
             };
 
         case "ADD_TO_CARRITO":

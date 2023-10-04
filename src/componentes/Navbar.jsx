@@ -10,12 +10,11 @@ import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import { Badge, MenuItem, Select } from '@mui/material';
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
-import { setCategoriasSeleccionada } from '../redux/actions'; 
+import Filtros from './Filtros';
+
 
 export default function Navbar() {
   const compra = useSelector((state) => state.carrito);
-  const categorias = ["Categoría 1", "Categoría 2", "Categoría 3"];
-  const categoriaSeleccionada = useSelector((state) => state.categoriaSeleccionada);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -28,10 +27,6 @@ export default function Navbar() {
     e.preventDefault();
     navigate("/carrito");
   }
-
-  const handleCategoriaChange = (e) => {
-    dispatch(setCategoriasSeleccionada(e.target.value));
-  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -59,22 +54,7 @@ export default function Navbar() {
           </Typography>
 
           <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
-            <Select
-              sx={{ color: "inherit" }}
-              value={categoriaSeleccionada}
-              onChange={handleCategoriaChange} // Usa la función de cambio de categoría
-              displayEmpty
-              inputProps={{ 'aria-label': 'Categoría' }}
-            >
-              <MenuItem value="" disabled >
-                Filtrar por Categorías
-              </MenuItem>
-              {categorias.map((categoria, index) => (
-                <MenuItem key={index} value={categoria}>
-                  {categoria}
-                </MenuItem>
-              ))}
-            </Select>
+            <Filtros />
           </Typography>
           <Typography>
             <Button color="inherit" component="button" variant="outline"> Sign-In</Button>
