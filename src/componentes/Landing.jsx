@@ -11,6 +11,10 @@ export const Landing = () => {
         e.preventDefault();
         navigate("/home");
     }
+    async function about(e) {
+        e.preventDefault();
+        navigate("/about");
+    }
 
     return (
         <div className='landing'>
@@ -19,14 +23,14 @@ export const Landing = () => {
                     Red de Productos Salteños
                 </div>
                 <div >
-                    <button className='btnCreCu' onClick={(e) => ALaHome(e)}>Catálogo</button>
+                    <button className='btnCreCu' onClick={(e) => ALaHome(e)}>Tienda</button>
                 </div>
             </div>
             <div className='landArribaCont'>
                 <div >
                 </div>
                 <div >
-                    <button className='btnCreCu' onClick={(e) => ALaHome(e)}>Productores</button>
+                    <button className='btnCreCu' onClick={(e) => about(e)}>Info</button>
                 </div>
             </div>
         </div>

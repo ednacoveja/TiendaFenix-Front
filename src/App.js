@@ -3,6 +3,7 @@ import Carrito from "./componentes/Carrito.jsx";
 import Products from "./componentes/Products.jsx";
 import { Landing } from "./componentes/Landing.jsx";
 import Admin from "./componentes/Admin.jsx";
+import  Info  from "./componentes/Info.jsx";
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/home" element={<Products />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/about" element={<Info />} />
       </Routes>
     </div>
   );

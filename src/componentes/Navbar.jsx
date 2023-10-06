@@ -27,6 +27,10 @@ export default function Navbar() {
     e.preventDefault();
     navigate("/carrito");
   }
+  async function about(e) {
+    e.preventDefault();
+    navigate("/about");
+}
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -57,7 +61,9 @@ export default function Navbar() {
             <Filtros />
           </Typography>
           <Typography>
-            <Button color="inherit" component="button" variant="outline"> Sign-In</Button>
+            <Button color="inherit" component="button" variant="outline" onClick={(e) => {
+              about(e);
+            }}>Info</Button>
           </Typography>
 
           <IconButton aria-label='show cart items' color="inherit">

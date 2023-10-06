@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import { Total } from './Total';
-import Navbar from './Navbar';
+import NavBarCarrito from './NavBarCarrito';
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getProductos} from '../redux/actions';
@@ -39,14 +39,12 @@ export default function Carrito() {
 
     return (
         <body>
-            <Navbar />
+            <NavBarCarrito />
 
             <Box sx={{ flexGrow: 1 }} padding={8} style={{ backgroundColor: "black" }}>
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
-                        <Typography align="center" gutterBottom variant="h4" color={'white'}>
-                            Compras
-                        </Typography>
+                 
                     </Grid>
                     <Grid item xs={12} sm={8} md={9} container spacing={2}>
                          <InvitadoRow />

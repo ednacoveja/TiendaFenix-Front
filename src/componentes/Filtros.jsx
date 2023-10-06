@@ -15,10 +15,6 @@ export default function Filtros() {
         dispatch(filterByType(e.target.value));
     }
 
-    const [age, setAge] = React.useState('');
-
-
-
     return (
         <div>
 
@@ -30,9 +26,8 @@ export default function Filtros() {
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
-                        value={age}
-                        label="Age"
                         onChange={(e) => handlerFilterProducts(e)}
+                        style={{ color: "white" }}
                     >
                         <MenuItem value="all">Todos</MenuItem>
                         <MenuItem value="Aromas">Aromas</MenuItem>

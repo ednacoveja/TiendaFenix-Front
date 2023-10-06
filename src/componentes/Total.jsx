@@ -64,8 +64,11 @@ export const Total = () => {
 
     return (
         <div style={clases.root}>
-            <h5>Total items: {compra.length}</h5>
-            <h5>{accounting.formatMoney(suma, "$", 0)}</h5>
+            <br/>
+            <br/>
+            <p><font size="4">{compra.length} productos seleccionados</font></p>
+            <br/>
+            <h5>Total:{accounting.formatMoney(suma, "$", 0)}</h5>
             <Button style={clases.button} variant="contained" color='error' onClick={() => setDialogOpen(true)}>
                 Contactar por WhatsApp
             </Button>
