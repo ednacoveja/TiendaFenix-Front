@@ -18,6 +18,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
 
 
+
 const ExpandMore = styled((props) => {
     const { expand, ...other } = props;
     return <IconButton {...other} />;
@@ -43,79 +44,81 @@ export default function CardCarrito({ id, name, rating, description, image, type
     };
 
     return (
-        <Card sx={{ maxWidth: 345, backgroundColor: "black" }} >
-            <CardHeader
-                avatar={
-                    <Avatar sx={{ bgcolor: grey[800] }} aria-label="recipe">
-                        <img
-                            width={"30px"}
-                            src={'images/fenixBlackCircular.png'}
-                            alt="Logo"
-                        />
-                    </Avatar>
-                }
-                action={
-                    <Typography
-                        variant='h4'
-                        color="white"
-                    >
-                        {accounting.formatMoney(price, "$", 0)}
-                    </Typography>
-                }
-                title={
-                    <Typography
-                        variant='h5'
-                        color="white"
-                    >
-                        {name}
-                    </Typography>
-                }
+        <div>
+            <Card sx={{ maxWidth: 345, backgroundColor: "black" }} >
+                <CardHeader
+                    avatar={
+                        <Avatar sx={{ bgcolor: grey[800] }} aria-label="recipe">
+                            <img
+                                width={"30px"}
+                                src={'images/fenixBlackCircular.png'}
+                                alt="Logo"
+                            />
+                        </Avatar>
+                    }
+                    action={
+                        <Typography
+                            variant='h4'
+                            color="white"
+                        >
+                            {accounting.formatMoney(price, "$", 0)}
+                        </Typography>
+                    }
+                    title={
+                        <Typography
+                            variant='h5'
+                            color="white"
+                        >
+                            {name}
+                        </Typography>
+                    }
 
-                subheader={
-                    <Typography
-                        variant='h8'
-                        color="white"
-                    >
-                        Stock
-                    </Typography>
-                }
-            />
-            <CardMedia
-                component="img"
-                height="194"
-                image={image}
-                alt={name}
-            />
-            <CardContent>
-                <Typography variant="body2" color="white">
-                    {type}
-
-                </Typography>
-            </CardContent>
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to Cart" onClick={() => deleteProduct(id)} >
-                    <DeleteOutlineIcon fontSize="large" sx={{ color: 'white' }} />
-                </IconButton>
-                {Array(rating)
-                    .fill()
-                    .map((_, i) => (
-                        <p>&#11088;</p>
-                    ))
-                }
-                <ExpandMore
-                    expand={expanded}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon sx={{ color: 'white' }} />
-                </ExpandMore>
-            </CardActions>
-            <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    subheader={
+                        <Typography
+                            variant='h8'
+                            color="white"
+                        >
+                            Stock
+                        </Typography>
+                    }
+                />
+                <CardMedia
+                    component="img"
+                    height="194"
+                    image={image}
+                    alt={name}
+                />
                 <CardContent>
-                    <Typography paragraph color={"white"}>{description}</Typography>
+                    <Typography variant="body2" color="white">
+                        {type}
+
+                    </Typography>
                 </CardContent>
-            </Collapse>
-        </Card>
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add to Cart" onClick={() => deleteProduct(id)} >
+                        <DeleteOutlineIcon fontSize="large" sx={{ color: 'white' }} />
+                    </IconButton>
+                    {Array(rating)
+                        .fill()
+                        .map((_, i) => (
+                            <p>&#11088;</p>
+                        ))
+                    }
+                    <ExpandMore
+                        expand={expanded}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon sx={{ color: 'white' }} />
+                    </ExpandMore>
+                </CardActions>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                    <CardContent>
+                        <Typography paragraph color={"white"}>{description}</Typography>
+                    </CardContent>
+                </Collapse>
+            </Card>
+        </div>
     );
 }

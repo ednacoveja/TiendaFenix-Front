@@ -54,7 +54,7 @@ export default function Navbar() {
                     <Typography sx={{ flexGrow: 1 }}>
                         <Button color="inherit" component="button" variant="outline" onClick={(e) => {
                             ALaHome(e);
-                        }}>Tienda Fenix</Button>
+                        }}>Tienda</Button>
                     </Typography>
 
                     <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>

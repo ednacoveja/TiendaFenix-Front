@@ -1,7 +1,7 @@
 import './Landing.css'
 import React from 'react'
 import { useNavigate } from "react-router-dom";
-
+import Footer from './Footer';
 
 export const Landing = () => {
 
@@ -17,23 +17,29 @@ export const Landing = () => {
     }
 
     return (
-        <div className='landing'>
-            <div className='landArribaCont'>
-                <div className='logo'>
-                    Red de Productos Salteños
+        <div>
+            <main className='landing'>
+                <div className='landArribaCont'>
+                    <div className='logo'>
+                        Productos del Norte Argentino
+                    </div>
+                    <div >
+                        <button className='btnCreCu' onClick={(e) => ALaHome(e)}>Tienda</button>
+                    </div>
                 </div>
-                <div >
-                    <button className='btnCreCu' onClick={(e) => ALaHome(e)}>Tienda</button>
+                <div className='landArribaCont'>
+                    <div >
+                    </div>
+                    <div >
+                        <button className='btnCreCu' onClick={(e) => about(e)}>Info</button>
+                    </div>
                 </div>
-            </div>
-            <div className='landArribaCont'>
-                <div >
-                </div>
-                <div >
-                    <button className='btnCreCu' onClick={(e) => about(e)}>Info</button>
-                </div>
-            </div>
+            </main>
+
+            <Footer></Footer>
+
         </div>
+
 
     )
 }

@@ -54,13 +54,18 @@ export default function Navbar() {
                     <Typography sx={{ flexGrow: 1 }}>
                         <Button color="inherit" component="button" variant="outline" onClick={(e) => {
                             ALaHome(e);
-                        }}>Tienda Fenix</Button>
+                        }}>Tienda</Button>
                     </Typography>
 
                     <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
-                        Volviendo a conectar con la naturaleza
+                        Tejiendo redes
                     </Typography>
-            
+                    <Typography>
+                        <Button color="inherit" component="button" variant="outline" onClick={(e) => {
+                            about(e);
+                        }}>Info</Button>
+                    </Typography>
+
 
                     <IconButton aria-label='show cart items' color="inherit">
                         <Badge badgeContent={compra.length} color='error' max={99}

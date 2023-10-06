@@ -6,8 +6,9 @@ import { Total } from './Total';
 import NavBarCarrito from './NavBarCarrito';
 import { useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { getProductos} from '../redux/actions';
+import { getProductos } from '../redux/actions';
 import CardCarrito from './CardCarrito';
+import Footer from './Footer';
 
 
 export default function Carrito() {
@@ -17,7 +18,7 @@ export default function Carrito() {
 
     useEffect(() => {
         dispatch(getProductos());
- 
+
     }, [dispatch]);
 
 
@@ -38,24 +39,27 @@ export default function Carrito() {
     }
 
     return (
-        <body>
-            <NavBarCarrito />
+        <div>
+            <body>
+                <NavBarCarrito />
 
-            <Box sx={{ flexGrow: 1 }} padding={8} style={{ backgroundColor: "black" }}>
-                <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                 
+                <Box sx={{ flexGrow: 1 }} padding={8} style={{ backgroundColor: "black" }}>
+                    <Grid container spacing={3}>
+                        <Grid item xs={12}>
+
+                        </Grid>
+                        <Grid item xs={12} sm={8} md={9} container spacing={2}>
+                            <InvitadoRow />
+                        </Grid>
+                        <Grid item xs={12} sm={4} md={3} >
+                            <Typography align="center" gutterBottom variant="h4" color={'white'}>
+                                <Total></Total>
+                            </Typography>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={8} md={9} container spacing={2}>
-                         <InvitadoRow />
-                    </Grid>
-                    <Grid item xs={12} sm={4} md={3} >
-                        <Typography align="center" gutterBottom variant="h4" color={'white'}>
-                            <Total></Total>
-                        </Typography>
-                    </Grid>
-                </Grid>
-            </Box>
-        </body>
+                </Box>
+            </body>
+            <Footer />
+        </div>
     );
 }
