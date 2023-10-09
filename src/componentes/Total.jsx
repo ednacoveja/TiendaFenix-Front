@@ -25,37 +25,19 @@ export const Total = () => {
     }
 
     const [dialogOpen, setDialogOpen] = useState(false);
-    const [formaDePago, setFormaDePago] = useState(""); // Estado para almacenar la forma de pago seleccionada
 
-    const handleTransferencia = () => {
-        // Realiza las acciones necesarias para manejar la transferencia
-        // ...
 
-        // Establece la forma de pago seleccionada en "Transferencia"
-        setFormaDePago("Transferencia");
+    const handleFormSubmit = (name, paymentMethod) => {
 
-        // Cierra el diálogo
-        setDialogOpen(false);
-        handleWhatsAppClick()
+        handleWhatsAppClick(name, paymentMethod)
+
     };
 
-    const handleEfectivo = () => {
-        // Muestra un mensaje de confirmación y detalles para la recogida en efectivo.
-        // ...
-
-        // Establece la forma de pago seleccionada en "Efectivo al retirar"
-        setFormaDePago("Efectivo al retirar");
-
-        // Cierra el diálogo
-        setDialogOpen(false);
-        handleWhatsAppClick()
-    };
-
-    const handleWhatsAppClick = () => {
+    const handleWhatsAppClick = ({name, paymentMethod}) => {
         // Crear un mensaje prellenado para WhatsApp con los nombres de los productos, el total y la forma de pago
-        const productos = isLoggedIn ? compraLogin.map(item => item.name) : compra.map(item => item.name);
-        const formaDePagoText = formaDePago ? `Forma de Pago: ${formaDePago}\n` : "";
-        const mensaje = `¡Hola! Estoy interesado en comprar los siguientes productos:\n${productos.join('\n')}\n\n${formaDePagoText}Total: ${isLoggedIn ? accounting.formatMoney(sumaLogin, "$", 0) : accounting.formatMoney(suma, "$", 0)}.`;
+        const productos = compra.map(item => item.name);
+        const formaDePagoText = paymentMethod ? `Forma de Pago: ${paymentMethod}\n` : "";
+        const mensaje = `¡Hola! Mi nombre es ${name}. Estoy interesado en comprar los siguientes productos:\n\n${productos.join('\n')}\n\n${formaDePagoText}Total: ${accounting.formatMoney(suma, "$", 0)}.`;
 
         // Crear el enlace de WhatsApp con el mensaje y abrirlo en una nueva ventana
         const whatsappURL = `https://wa.me/543876305279/?text=${encodeURIComponent(mensaje)}`;
@@ -64,19 +46,18 @@ export const Total = () => {
 
     return (
         <div style={clases.root}>
-            <br/>
-            <br/>
+            <br />
+            <br />
             <p><font size="4">{compra.length} productos seleccionados</font></p>
-            <br/>
+            <br />
             <h5>Total:{accounting.formatMoney(suma, "$", 0)}</h5>
-            <Button style={clases.button} variant="contained" color='error' onClick={() => setDialogOpen(true)}>
+            <Button style={clases.button} variant="contained" color='primary' onClick={() => setDialogOpen(true)}>
                 Contactar por WhatsApp
             </Button>
             <FormaDePagoDialog
                 open={dialogOpen}
                 onClose={() => setDialogOpen(false)}
-                onTransferencia={handleTransferencia}
-                onEfectivo={handleEfectivo}
+                onSubmit={handleFormSubmit}
             />
         </div>
     );

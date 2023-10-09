@@ -1,18 +1,17 @@
 import React, { useState } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 
-function FormaDePagoDialog({ open, onClose, onTransferencia, onEfectivo }) {
+function FormaDePagoDialog({ open, onClose, onSubmit }) {
   const handleClose = () => {
     onClose();
   };
 
-  const handleTransferencia = () => {
-    onTransferencia();
-    handleClose();
-  };
+  const [name, setName] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('');
 
-  const handleEfectivo = () => {
-    onEfectivo();
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit({ name, paymentMethod }); // Pasar un objeto con nombre y paymentMethod
     handleClose();
   };
 
@@ -20,13 +19,31 @@ function FormaDePagoDialog({ open, onClose, onTransferencia, onEfectivo }) {
     <Dialog open={open} onClose={handleClose}>
       <DialogTitle>Forma de Pago</DialogTitle>
       <DialogContent>
-        <Typography>
-          ¿Cómo te gustaría pagar por tu pedido?
-        </Typography>
-        <div>
-          <Button onClick={handleTransferencia}>Transferencia</Button>
-          <Button onClick={handleEfectivo}>Efectivo al retirar</Button>
-        </div>
+        <form onSubmit={handleSubmit}>
+          <TextField
+            label="Nombre"
+            variant="outlined"
+            fullWidth
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <FormControl fullWidth variant="outlined" style={{ marginTop: '16px' }}>
+            <InputLabel>Forma de Pago</InputLabel>
+            <Select
+              label="Forma de Pago"
+              value={paymentMethod}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+              required
+            >
+              <MenuItem value="transferencia">Transferencia</MenuItem>
+              <MenuItem value="efectivo">Efectivo</MenuItem>
+            </Select>
+          </FormControl>
+          <Button type="submit" variant="contained" color="primary">
+            Enviar
+          </Button>
+        </form>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClose}>Cerrar</Button>

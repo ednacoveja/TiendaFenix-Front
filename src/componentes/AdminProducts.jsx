@@ -36,6 +36,7 @@ function Admin() {
     type: "",
     price: "",
     rating: "",
+    emprendimiento: "",
   });
 
   const handlerChange = (e) => {
@@ -65,6 +66,7 @@ function Admin() {
         type: "",
         price: "",
         rating: "",
+        emprendimiento: "",
       });
     } catch (error) {
       console.error(error);
@@ -143,6 +145,16 @@ function Admin() {
             />
             <br />
             <br />
+            <label className="label">Emprendimiento:</label>
+            <input
+              className="input"
+              type="text"
+              name="emprendimiento"
+              value={input.type}
+              onChange={(e) => handlerChange(e)}
+            />
+            <br />
+            <br />
             <button
               className="buttonCreate"
               type="submit"
@@ -155,7 +167,7 @@ function Admin() {
           </div>
         </form>
       </div>
-      <h1 className="titulo">Usuarios</h1>
+      <h1 className="titulo">Productos</h1>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 50 }} aria-label="simple table">
           <TableHead>
@@ -163,7 +175,7 @@ function Admin() {
               <TableCell >#</TableCell>
               <TableCell >Nombre</TableCell>
               <TableCell >Tipo</TableCell>
-              <TableCell >Descripcion</TableCell>
+              <TableCell >Emprendimiento</TableCell>
               <TableCell align="right"> Eliminar </TableCell>
             </TableRow>
           </TableHead>
@@ -183,7 +195,7 @@ function Admin() {
                       </TableCell>
                       <TableCell>{p.name}</TableCell>
                       <TableCell>{p.type}</TableCell>
-                      <TableCell>{p.description}</TableCell>
+                      <TableCell>{p.emprendimiento}</TableCell>
                       <TableCell align="right">
                       </TableCell>
                       <TableCell align="right">

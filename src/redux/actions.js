@@ -86,3 +86,42 @@ export function deletePost(id) {
   }
 }
 
+export function getUser() {
+  try {
+    return async function (dispatch) {
+      var response = await axios.get("/users");
+      return dispatch({ type: "GET_USERS", payload: response.data });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export function createUser(payload) {
+  try {
+    return async function (dispatch) {
+      const response = await axios.post("/users", payload, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+      return dispatch({ type: "CREATE_USER", payload: response.data });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+export function deleteUser(id) {
+  try {
+    return async function (dispatch) {
+      var response = await axios.delete("/users/" + id);
+      return dispatch({ type: "DELETE_USER", payload: response.data });
+    };
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+
+

@@ -2,8 +2,10 @@ const initialState = {
     productos: [],
     allProducts: [],
     users: [],
+    allUsers: [],
     carrito: [],
     filtrosAplicados: []
+
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -62,6 +64,25 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 productos: filter,
+            };
+        case "GET_USERS":
+            return {
+                ...state,
+                users: action.payload,
+                allUsers: action.payload,
+            }
+        case "CREATE_USER":
+            console.log(action.payload);
+            return {
+                users: [action.payload, ...state.users],
+            };
+        case "DELETE_USER":
+            alert(action.payload.data);
+            const allUsers = state.users
+            const filterU = allUsers.filter(el => el._id !== action.payload.id)
+            return {
+                ...state,
+                productos: filterU,
             };
 
 
