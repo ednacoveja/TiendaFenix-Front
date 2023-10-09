@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createPost, getProductos, deletePost } from "../redux/actions";
+import { createUser, getUser, deleteUser } from "../redux/actions";
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import "./Admin.css"
 import Swal from "sweetalert2";
 
-function Admin() {
+function AdminUsers() {
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getProductos());
+    dispatch(getUser());
   }, [dispatch]);
 
-  const productos = useSelector((state) => state.productos);
+  const usuarios = useSelector((state) => state.users);
 
-  async function borrarProducto(id) {
+  async function borrarUser(id) {
     let paranoid = false;
-    dispatch(deletePost(id, paranoid));
+    dispatch(deleteUser(id, paranoid));
     Swal.fire({
       title: "Post Eliminado Correctamente",
       color: "#382c4b",
@@ -30,12 +30,10 @@ function Admin() {
   }
 
   const [input, setInput] = useState({
-    name: "",
+    nombre: "",
     description: "",
     image: null,
-    type: "",
-    price: "",
-    rating: "",
+    instagram: "",
   });
 
   const handlerChange = (e) => {
@@ -56,15 +54,14 @@ function Admin() {
     e.preventDefault();
 
     try {
-      await dispatch(createPost(input));
+      await dispatch(createUser(input));
       alert("creado");
       setInput({
-        name: "",
+        nombre: "",
         description: "",
         image: null,
-        type: "",
-        price: "",
-        rating: "",
+        instagram: "",
+    
       });
     } catch (error) {
       console.error(error);
@@ -79,16 +76,16 @@ function Admin() {
           <button className="buttonHome">Return HOME</button>
         </Link>
         <br />
-        <h1 className="titulo">Create your new product</h1>
+        <h1 className="titulo">Create your new emprendimiento</h1>
         <br />
         <form>
           <div>
-            <label className="label">Name:</label>
+            <label className="label">Nombre:</label>
             <input
               className="input"
               type="text"
-              name="name"
-              value={input.name}
+              name="nombre"
+              value={input.nombre}
               onChange={(e) => handlerChange(e)}
             />
             <br />
@@ -100,27 +97,7 @@ function Admin() {
               name="description"
               value={input.description}
               onChange={(e) => handlerChange(e)}
-            />
-            <br />
-            <br />
-            <label className="label">Price:</label>
-            <input
-              type="number"
-              name="price"
-              className="input"
-              value={input.price}
-              onChange={(e) => handlerChange(e)}
-            />
-            <br />
-            <br />
-            <label className="label">Rating:</label>
-            <input
-              type="number"
-              name="rating"
-              className="input"
-              value={input.rating}
-              onChange={(e) => handlerChange(e)}
-            />
+            />         
             <br />
             <br />
             <label className="label">Image:</label>
@@ -133,12 +110,12 @@ function Admin() {
 
             <br />
             <br />
-            <label className="label">Type:</label>
+            <label className="label">Instagram:</label>
             <input
               className="input"
               type="text"
-              name="type"
-              value={input.type}
+              name="instagram"
+              value={input.instagram}
               onChange={(e) => handlerChange(e)}
             />
             <br />
@@ -155,22 +132,22 @@ function Admin() {
           </div>
         </form>
       </div>
-      <h1 className="titulo">Productos</h1>
+      <h1 className="titulo">Emprendimientos</h1>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 50 }} aria-label="simple table">
           <TableHead>
             <TableRow>
               <TableCell >#</TableCell>
               <TableCell >Nombre</TableCell>
-              <TableCell >Tipo</TableCell>
+              <TableCell >Instagram</TableCell>
               <TableCell >Descripcion</TableCell>
               <TableCell align="right"> Eliminar </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {
-              productos
-                ? productos.map((p) => {
+             usuarios
+                ? usuarios.map((p) => {
                   { console.log(p) }
                   return (
                     <TableRow
@@ -181,14 +158,14 @@ function Admin() {
                       <TableCell component="th" scope="row">
                         {p._id}
                       </TableCell>
-                      <TableCell>{p.name}</TableCell>
-                      <TableCell>{p.type}</TableCell>
+                      <TableCell>{p.nombre}</TableCell>
+                      <TableCell>{p.instagram}</TableCell>
                       <TableCell>{p.description}</TableCell>
                       <TableCell align="right">
                       </TableCell>
                       <TableCell align="right">
                         <button
-                          onClick={() => borrarProducto(p._id)}
+                          onClick={() => borrarUser(p._id)}
                           className="buttonUsuario"
                         >
                           Eliminar
@@ -211,4 +188,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default AdminUsers;
