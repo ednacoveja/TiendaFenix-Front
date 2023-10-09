@@ -3,7 +3,7 @@ import React, { useState } from "react";
 
 function AdminLogin({ onLogin }) {
   const [password, setPassword] = useState("");
-  const contraseñaEnv=process.env.REACT_APP_CONTRASEÑA_ADMIN
+  const contraseñaEnv=process.env.REACT_APP_ADMIN
 
   const handleLogin = () => {
     // Verifica si la contraseña ingresada es correcta
