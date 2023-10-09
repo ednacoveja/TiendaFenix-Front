@@ -20,7 +20,7 @@ function AdminUsers() {
     let paranoid = false;
     dispatch(deleteUser(id, paranoid));
     Swal.fire({
-      title: "Post Eliminado Correctamente",
+      title: "Usuario Eliminado Correctamente",
       color: "#382c4b",
       icon: "success",
       confirmButtonColor: "#382c4b",
@@ -141,7 +141,6 @@ function AdminUsers() {
               <TableCell >Nombre</TableCell>
               <TableCell >Instagram</TableCell>
               <TableCell >Descripcion</TableCell>
-              <TableCell align="right"> Eliminar </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -162,6 +161,13 @@ function AdminUsers() {
                       <TableCell>{p.instagram}</TableCell>
                       <TableCell>{p.description}</TableCell>
                       <TableCell align="right">
+                      </TableCell>
+                      <TableCell align="right">
+                        <button
+                          className="buttonUsuario"
+                        >
+                          Editar
+                        </button>
                       </TableCell>
                       <TableCell align="right">
                         <button

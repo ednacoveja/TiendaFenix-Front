@@ -6,7 +6,7 @@ import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, 
 import "./Admin.css"
 import Swal from "sweetalert2";
 
-function Admin() {
+function AdminProducts() {
 
   const dispatch = useDispatch();
 
@@ -20,7 +20,7 @@ function Admin() {
     let paranoid = false;
     dispatch(deletePost(id, paranoid));
     Swal.fire({
-      title: "Post Eliminado Correctamente",
+      title: "Producto Eliminado Correctamente",
       color: "#382c4b",
       icon: "success",
       confirmButtonColor: "#382c4b",
@@ -176,7 +176,7 @@ function Admin() {
               <TableCell >Nombre</TableCell>
               <TableCell >Tipo</TableCell>
               <TableCell >Emprendimiento</TableCell>
-              <TableCell align="right"> Eliminar </TableCell>
+           
             </TableRow>
           </TableHead>
           <TableBody>
@@ -197,6 +197,14 @@ function Admin() {
                       <TableCell>{p.type}</TableCell>
                       <TableCell>{p.emprendimiento}</TableCell>
                       <TableCell align="right">
+                      </TableCell>
+                      <TableCell align="right">
+                        <button
+
+                          className="buttonUsuario"
+                        >
+                          Editar
+                        </button>
                       </TableCell>
                       <TableCell align="right">
                         <button
@@ -223,4 +231,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default AdminProducts;
