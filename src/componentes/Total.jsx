@@ -2,14 +2,13 @@ import { Button } from '@mui/material';
 import accounting from 'accounting';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import FormaDePagoDialog from './FormaDePagoDialog';
+import FormaDePagoDialog from './DialogoWpp';
 
 export const Total = () => {
     const compra = useSelector((state) => state.carrito);
     const suma = compra.reduce((accumulator, item) => accumulator + item.price, 0);
-    const compraLogin = useSelector((state) => state.userCarrito);
-    const sumaLogin = compraLogin.reduce((accumulator, item) => accumulator + item.price, 0);
-    const isLoggedIn = useSelector((state) => state.isLoggedIn);
+
+  
 
     const clases = {
         root: {
@@ -35,7 +34,7 @@ export const Total = () => {
 
     const handleWhatsAppClick = ({name, paymentMethod}) => {
         // Crear un mensaje prellenado para WhatsApp con los nombres de los productos, el total y la forma de pago
-        const productos = compra.map(item => item.name);
+        const productos = compra.map(item => `${item.name} (${item.emprendimiento})`);
         const formaDePagoText = paymentMethod ? `Forma de Pago: ${paymentMethod}\n` : "";
         const mensaje = `¡Hola! Mi nombre es ${name}. Estoy interesado en comprar los siguientes productos:\n\n${productos.join('\n')}\n\n${formaDePagoText}Total: ${accounting.formatMoney(suma, "$", 0)}.`;
 
