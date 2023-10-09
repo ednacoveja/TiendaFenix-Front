@@ -74,8 +74,8 @@ export default function Album() {
                     <Grid container spacing={2}>
                         <Container maxWidth="sm">
                             <Typography
-                                component="h2"
-                                variant="h3"
+                                component="h3"
+                                variant="h4"
                                 align="center"
                                 color="white"
                                 gutterBottom
@@ -88,8 +88,8 @@ export default function Album() {
                         </Container>
                         <Container maxWidth="sm">
                             <Typography
-                                component="h2"
-                                variant="h3"
+                                component="h3"
+                                variant="h4"
                                 align="center"
                                 color="white"
                                 gutterBottom
@@ -103,8 +103,8 @@ export default function Album() {
                     </Grid>
                     <Container maxWidth="sm">
                         <Typography
-                            component="h2"
-                            variant="h3"
+                            component="h3"
+                            variant="h4"
                             align="center"
                             color="white"
                             gutterBottom
