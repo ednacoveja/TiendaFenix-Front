@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 
+
 function AdminLogin({ onLogin }) {
   const [password, setPassword] = useState("");
+  const contraseñaEnv=process.env.REACT_APP_CONTRASEÑA_ADMIN
 
   const handleLogin = () => {
     // Verifica si la contraseña ingresada es correcta
-    if (password === "Ednac.25717") {
+    if (password ===contraseñaEnv ) {
+        console.log(password)
       onLogin();
     } else {
       alert("Contraseña incorrecta. Intenta de nuevo.");

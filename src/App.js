@@ -17,19 +17,27 @@ function App() {
         <Route exact path="/" element={<Landing />} />
         <Route path="/home" element={<Products />} />
         <Route path="/carrito" element={<Carrito />} />
-        <Route path="/admin/Products" element={<AdminP />} />
-        <Route path="/admin/Users" element={<AdminU />} />
         <Route path="/about" element={<Info />} />
         <Route
-          path="/admin/*"
-          element={
-            isAdminLoggedIn ? (
-              <AdminP />
-            ) : (
-              <AdminLogin onLogin={() => setIsAdminLoggedIn(true)} />
-            )
-          }
-        />
+        path="/admin/Products"
+        element={
+          isAdminLoggedIn ? (
+            <AdminP />
+          ) : (
+            <AdminLogin onLogin={() => setIsAdminLoggedIn(true)} />
+          )
+        }
+      />
+      <Route
+        path="/admin/Users"
+        element={
+          isAdminLoggedIn ? (
+            <AdminU />
+          ) : (
+            <AdminLogin onLogin={() => setIsAdminLoggedIn(true)} />
+          )
+        }
+      />
       </Routes>
     </div>
   );
