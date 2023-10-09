@@ -56,17 +56,10 @@ export default function CardCarrito({ id, name, rating, description, image, type
                             />
                         </Avatar>
                     }
-                    action={
-                        <Typography
-                            variant='h4'
-                            color="white"
-                        >
-                            {accounting.formatMoney(price, "$", 0)}
-                        </Typography>
-                    }
+             
                     title={
                         <Typography
-                            variant='h5'
+                            variant='h6'
                             color="white"
                         >
                             {name}
@@ -78,7 +71,7 @@ export default function CardCarrito({ id, name, rating, description, image, type
                             variant='h8'
                             color="white"
                         >
-                            Stock
+                           {accounting.formatMoney(price, "$", 0)}
                         </Typography>
                     }
                 />
