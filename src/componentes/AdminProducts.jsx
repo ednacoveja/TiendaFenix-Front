@@ -150,7 +150,7 @@ function Admin() {
               className="input"
               type="text"
               name="emprendimiento"
-              value={input.type}
+              value={input.emprendimiento}
               onChange={(e) => handlerChange(e)}
             />
             <br />
