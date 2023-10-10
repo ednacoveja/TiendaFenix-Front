@@ -13,7 +13,9 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import { green, pink } from '@mui/material/colors';
 import InfoCard from "./InfoCard";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getUser } from '../redux/actions';
+import { useEffect } from "react";
 
 
 
@@ -22,6 +24,12 @@ const defaultTheme = createTheme();
 
 export default function Album() {
     const allUsers = useSelector((state) => state.users);
+    const dispatch = useDispatch();
+  
+    useEffect(() => {
+      dispatch(getUser())
+    }, [dispatch]);
+    
     return (
         <ThemeProvider theme={defaultTheme}>
             <NavBarAbout />
