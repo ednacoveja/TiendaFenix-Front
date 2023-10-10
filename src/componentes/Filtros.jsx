@@ -30,10 +30,11 @@ export default function Filtros() {
                         style={{ color: "white" }}
                     >
                         <MenuItem value="all">Todos</MenuItem>
-                        <MenuItem value="Aromas">Aromas</MenuItem>
-                        <MenuItem value="Balsamo">Balsamo</MenuItem>
-                        <MenuItem value="desodorante">Desodorante</MenuItem>
-                        <MenuItem value="velas">Velas</MenuItem>
+                        <MenuItem value="cosmetica">Cosmetica</MenuItem>
+                        <MenuItem value="alimentos">Alimentos</MenuItem>
+                        <MenuItem value="condimentos">Condimentos</MenuItem>
+                        <MenuItem value="plantas">Plantas</MenuItem>
+                        <MenuItem value="aromas">Aromas y Velas</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
