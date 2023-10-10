@@ -82,7 +82,7 @@ const rootReducer = (state = initialState, action) => {
             const filterU = allUsers.filter(el => el._id !== action.payload.id)
             return {
                 ...state,
-                productos: filterU,
+                users: filterU,
             };
 
 
