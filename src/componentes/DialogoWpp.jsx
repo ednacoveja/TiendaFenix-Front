@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, FormControl, InputLabel, MenuItem, Select } from '@mui/material';
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, TextField, FormControl, InputLabel, MenuItem, Select, FormControlLabel, Checkbox } from '@mui/material';
 
 function FormaDePagoDialog({ open, onClose, onSubmit }) {
   const handleClose = () => {
@@ -17,7 +17,7 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Forma de Pago</DialogTitle>
+      <DialogTitle>Nombre</DialogTitle>
       <DialogContent>
         <form onSubmit={handleSubmit}>
           <TextField
@@ -28,26 +28,42 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <FormControl fullWidth variant="outlined" style={{ marginTop: '16px' }}>
-            <InputLabel>Forma de Pago</InputLabel>
-            <Select
-              label="Forma de Pago"
-              value={paymentMethod}
-              onChange={(e) => setPaymentMethod(e.target.value)}
-              required
-            >
-              <MenuItem value="transferencia">Transferencia</MenuItem>
-              <MenuItem value="efectivo">Efectivo</MenuItem>
-            </Select>
-          </FormControl>
-          <Button type="submit" variant="contained" color="primary">
-            Enviar
-          </Button>
+          <DialogTitle>Forma de Pago</DialogTitle>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={paymentMethod === "transferencia"}
+                onChange={() => setPaymentMethod("transferencia")}
+              />
+            }
+            label="Transferencia"
+          />
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={paymentMethod === "efectivo"}
+                onChange={() => setPaymentMethod("efectivo")}
+              />
+            }
+            label="Efectivo"
+          />
+
+
+          <DialogActions>
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <Button onClick={handleClose} color="secondary">
+                Cerrar
+              </Button>
+              <Button type="submit" variant="contained" color="primary">
+                Enviar
+              </Button>
+
+            </div>
+
+          </DialogActions>
         </form>
       </DialogContent>
-      <DialogActions>
-        <Button onClick={handleClose}>Cerrar</Button>
-      </DialogActions>
+
     </Dialog>
   );
 }
