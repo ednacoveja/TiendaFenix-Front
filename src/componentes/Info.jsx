@@ -91,7 +91,7 @@ export default function Album() {
                                 ¿Cómo nos organizamos?
                             </Typography>
                             <Typography variant="outline" align="center" color="white" paragraph >
-                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página son de domingo a jueves y estarán listos para retirar el sábado de 12 a 16 hs. Si haces un pedido el viernes o sábado, se retira el siguiente sábado. Proximamente podrás venir al local los domingos de 10 a 19 hs en el centro de Salta.
+                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página son de domingo a miércoles y estarán listos para retirar el sábado de 12 a 16 hs. Si haces un pedido de jueves a sábado, se retira el siguiente sábado. Próximamente podrás venir a nuestro local en el centro de Salta.
                             </Typography>
                         </Container>
                         <Container maxWidth="sm">
@@ -120,8 +120,8 @@ export default function Album() {
                             Descuentos
                         </Typography>
                         <Typography variant="outline" align="center" color="white" paragraph >
-                            Si traes tus propios frascos para las compras por peso, te regalamos un jabón de glicerina y manteca de karite.
-                            Si traes +5 frascos de vidrio con tapa para dejarnos, tenés un 5% de descuento en tu compra.
+                            Si traes +3 frascos de vidrio con tapa, te regalamos un jabón de glicerina y manteca de karité.
+                            Si traes +5 frascos, tenés un 5% de descuento en tu compra.
                         </Typography>
                     </Container>
                 </Box>
