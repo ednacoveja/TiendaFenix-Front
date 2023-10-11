@@ -14,7 +14,7 @@ import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import accounting from "accounting"
 import { useDispatch } from 'react-redux';
-import {addToCarrito} from "../redux/actions"
+import { addToCarrito } from "../redux/actions"
 
 
 
@@ -29,7 +29,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Product({ id, name, rating, description, image, type, price,userLoged }) {
+export default function Product({ id, name, description, image, type, price, emprendimiento }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -39,7 +39,7 @@ export default function Product({ id, name, rating, description, image, type, pr
     const dispatch = useDispatch()
 
     const addToBasket = (id) => {
-        dispatch(addToCarrito(id,userLoged))
+        dispatch(addToCarrito(id))
     }
 
 
@@ -55,7 +55,7 @@ export default function Product({ id, name, rating, description, image, type, pr
                         />
                     </Avatar>
                 }
-        
+
                 title={
                     <Typography
                         variant='h6'
@@ -70,7 +70,7 @@ export default function Product({ id, name, rating, description, image, type, pr
                         variant='h8'
                         color="white"
                     >
-                         {accounting.formatMoney(price, "$", 0)}
+                        {accounting.formatMoney(price, "$", 0)}
                     </Typography>
                 }
             />
@@ -87,15 +87,12 @@ export default function Product({ id, name, rating, description, image, type, pr
                 </Typography>
             </CardContent>
             <CardActions disableSpacing>
-                <IconButton aria-label="add to Cart" onClick={()=>addToBasket(id)} >
+                <IconButton aria-label="add to Cart" onClick={() => addToBasket(id)} >
                     <AddShoppingCart fontSize="large" sx={{ color: 'white' }} />
                 </IconButton>
-                {Array(rating)
-                    .fill()
-                    .map((_, i) => (
-                        <p>&#11088;</p>
-                    ))
-                }
+                <Typography variant="body2" color="grey">
+                    {emprendimiento}
+                </Typography>
                 <ExpandMore
                     expand={expanded}
                     onClick={handleExpandClick}

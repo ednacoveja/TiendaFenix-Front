@@ -18,9 +18,9 @@ export default function Filtros() {
     return (
         <div>
 
-            <Box sx={{ maxWidth: 120 }} >
+            <Box sx={{ maxWidth: 130 }} >
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" style={{ color: "white" }} >
+                    <InputLabel id="demo-simple-select-label" variant="outline" style={{ color: "white"}} >
                         Categorías
                     </InputLabel>
                     <Select

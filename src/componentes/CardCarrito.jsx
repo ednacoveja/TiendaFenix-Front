@@ -30,7 +30,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function CardCarrito({ id, name, rating, description, image, type, price }) {
+export default function CardCarrito({ id, name, emprendimiento, description, image, type, price }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -56,7 +56,7 @@ export default function CardCarrito({ id, name, rating, description, image, type
                             />
                         </Avatar>
                     }
-             
+
                     title={
                         <Typography
                             variant='h6'
@@ -71,7 +71,7 @@ export default function CardCarrito({ id, name, rating, description, image, type
                             variant='h8'
                             color="white"
                         >
-                           {accounting.formatMoney(price, "$", 0)}
+                            {accounting.formatMoney(price, "$", 0)}
                         </Typography>
                     }
                 />
@@ -91,12 +91,9 @@ export default function CardCarrito({ id, name, rating, description, image, type
                     <IconButton aria-label="add to Cart" onClick={() => deleteProduct(id)} >
                         <DeleteOutlineIcon fontSize="large" sx={{ color: 'white' }} />
                     </IconButton>
-                    {Array(rating)
-                        .fill()
-                        .map((_, i) => (
-                            <p>&#11088;</p>
-                        ))
-                    }
+                    <Typography variant="body2" color="grey">
+                        {emprendimiento}
+                    </Typography>
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}
