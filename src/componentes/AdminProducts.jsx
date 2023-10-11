@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createPost, getProductos, deletePost } from "../redux/actions";
+import { createPost, getProductos, deletePost, editPost } from "../redux/actions";
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import "./Admin.css"
 import Swal from "sweetalert2";
+import EditProduct from "./EditProducts";
 
 function AdminProducts() {
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     dispatch(getProductos());
   }, [dispatch]);
 
   const productos = useSelector((state) => state.productos);
+  const [editingProduct, setEditingProduct] = useState(null);
+
+  const handleEditProduct = (productId) => {
+    setEditingProduct(productId);
+  };
+
+  const handleSaveProduct = async (editedProduct) => {
+    try {
+      await dispatch(editPost(editedProduct));
+      setEditingProduct(null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   async function borrarProducto(id) {
     let paranoid = false;
@@ -26,7 +39,7 @@ function AdminProducts() {
       confirmButtonColor: "#382c4b",
       confirmButtonText: "OK",
       background: "#e8e8e8",
-    })
+    });
   }
 
   const [input, setInput] = useState({
@@ -55,7 +68,6 @@ function AdminProducts() {
 
   const handlerSubmit = async (e) => {
     e.preventDefault();
-
     try {
       await dispatch(createPost(input));
       alert("creado");
@@ -85,7 +97,7 @@ function AdminProducts() {
         <br />
         <form>
           <div>
-            <label className="label">Name:</label>
+          <label className="label">Name:</label>
             <input
               className="input"
               type="text"
@@ -172,63 +184,56 @@ function AdminProducts() {
         <Table sx={{ minWidth: 50 }} aria-label="simple table">
           <TableHead>
             <TableRow>
-              <TableCell >#</TableCell>
-              <TableCell >Nombre</TableCell>
-              <TableCell >Tipo</TableCell>
-              <TableCell >Emprendimiento</TableCell>
-           
+              <TableCell>Nombre</TableCell>
+              <TableCell>Tipo</TableCell>
+              <TableCell>Emprendimiento</TableCell>
+              <TableCell>Precio</TableCell>
+              <TableCell>Cantidad</TableCell>
+              <TableCell>Description</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {
-              productos
-                ? productos.map((p) => {
-                  { console.log(p) }
-                  return (
-                    <TableRow
-                      key={p._id}
-                      sw={{ '&:last-child td, &:last-child th': { border: 5 } }}
+            {productos
+              ? productos.map((p) => (
+                <TableRow
+                  key={p._id}
+                  sw={{ '&:last-child td, &:last-child th': { border: 5 } }}
+                >
+                  <TableCell>{p.name}</TableCell>
+                  <TableCell>{p.type}</TableCell>
+                  <TableCell>{p.emprendimiento}</TableCell>
+                  <TableCell>{p.price}</TableCell>
+                  <TableCell>{p.cantidad}</TableCell>
+                  <TableCell>{p.description}</TableCell>
+                  <TableCell align="right">
+                    {editingProduct === p._id ? (
+                      <EditProduct product={p} onSave={(editedProduct) => handleSaveProduct(editedProduct,p._id)} />
+                    ) : (
+                      <button
+                        onClick={() => handleEditProduct(p._id)}
+                        className="buttonUsuario"
+                      >
+                        Editar
+                      </button>
+                    )}
+                  </TableCell>
+                  <TableCell align="right">
+                    <button
+                      onClick={() => borrarProducto(p._id)}
+                      className="buttonUsuario"
                     >
-
-                      <TableCell component="th" scope="row">
-                        {p._id}
-                      </TableCell>
-                      <TableCell>{p.name}</TableCell>
-                      <TableCell>{p.type}</TableCell>
-                      <TableCell>{p.emprendimiento}</TableCell>
-                      <TableCell align="right">
-                      </TableCell>
-                      <TableCell align="right">
-                        <button
-
-                          className="buttonUsuario"
-                        >
-                          Editar
-                        </button>
-                      </TableCell>
-                      <TableCell align="right">
-                        <button
-                          onClick={() => borrarProducto(p._id)}
-                          className="buttonUsuario"
-                        >
-                          Eliminar
-                        </button>
-                      </TableCell>
-
-                    </TableRow>
-                  )
-                })
-                : null}
+                      Eliminar
+                    </button>
+                  </TableCell>
+                </TableRow>
+              ))
+              : null}
           </TableBody>
-
         </Table>
-
-
       </TableContainer>
-
-
     </div>
   );
 }
 
 export default AdminProducts;
+

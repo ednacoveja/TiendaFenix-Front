@@ -77,7 +77,7 @@ export function createPost(payload) {
 
 export const editPost = (form) => async (dispatch) => {
   try {
-    const response = await axios.put(`/products/${form.id}`, form);
+    const response = await axios.put(`/products/${form._id}`, form);
     dispatch({ type: "EDIT_POST", payload: response.data });
     dispatch(getProductos());
   } catch (error) {
