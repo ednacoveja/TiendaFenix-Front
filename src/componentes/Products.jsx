@@ -27,7 +27,7 @@ export default function Products() {
             {allProducts && allProducts.map((p) => {
               return (
                 <Grid item xs={12} sm={6} md={5} lg={4}>
-                  <Product id={p._id} name={p.name} emprendimiento={p.emprendimiento} price={p.price} description={p.description} image={p.image} type={p.type} />
+                  <Product id={p._id} name={p.name} cantidad={p.cantidad}emprendimiento={p.emprendimiento} price={p.price} description={p.description} image={p.image} type={p.type} />
                 </Grid>
               )
             })}

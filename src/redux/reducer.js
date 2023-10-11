@@ -57,6 +57,13 @@ const rootReducer = (state = initialState, action) => {
             return {
                 productos: [action.payload, ...state.productos],
             };
+        case "EDIT_POST":
+            return {
+                ...state,
+                productos: state.productos.map((product) =>
+                    product._id === action.payload._id ? action.payload : product
+                ),
+            };
         case "DELETE_POST":
             alert(action.payload.data);
             const allposteos = state.productos

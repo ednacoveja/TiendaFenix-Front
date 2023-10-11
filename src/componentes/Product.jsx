@@ -29,7 +29,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function Product({ id, name, description, image, type, price, emprendimiento }) {
+export default function Product({ id, name, description, image, type, price, emprendimiento,cantidad }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -81,7 +81,7 @@ export default function Product({ id, name, description, image, type, price, emp
                 alt={name}
             />
             <CardContent>
-                <Typography variant="body2" color="white">
+                <Typography variant="body2" color="grey">
                     {type}
 
                 </Typography>
@@ -90,8 +90,8 @@ export default function Product({ id, name, description, image, type, price, emp
                 <IconButton aria-label="add to Cart" onClick={() => addToBasket(id)} >
                     <AddShoppingCart fontSize="large" sx={{ color: 'white' }} />
                 </IconButton>
-                <Typography variant="body2" color="grey">
-                    {emprendimiento}
+                <Typography variant="body2" color="white">
+                    {cantidad}
                 </Typography>
                 <ExpandMore
                     expand={expanded}
@@ -99,8 +99,12 @@ export default function Product({ id, name, description, image, type, price, emp
                     aria-expanded={expanded}
                     aria-label="show more"
                 >
+                    <Typography variant="body2" color="grey" expand="none">
+                        {emprendimiento.toUpperCase()}
+                    </Typography>
                     <ExpandMoreIcon sx={{ color: 'white' }} />
                 </ExpandMore>
+
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>

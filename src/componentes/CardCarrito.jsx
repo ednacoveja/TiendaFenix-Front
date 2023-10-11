@@ -30,7 +30,7 @@ const ExpandMore = styled((props) => {
     }),
 }));
 
-export default function CardCarrito({ id, name, emprendimiento, description, image, type, price }) {
+export default function CardCarrito({ id, name, emprendimiento, description, image, type, price,cantidad }) {
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -82,24 +82,27 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                     alt={name}
                 />
                 <CardContent>
-                    <Typography variant="body2" color="white">
+                    <Typography variant="body2" color="grey">
                         {type}
-
                     </Typography>
                 </CardContent>
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to Cart" onClick={() => deleteProduct(id)} >
                         <DeleteOutlineIcon fontSize="large" sx={{ color: 'white' }} />
                     </IconButton>
-                    <Typography variant="body2" color="grey">
-                        {emprendimiento}
+                    <Typography variant="body2" color="white">
+                        {cantidad}
                     </Typography>
+
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}
                         aria-expanded={expanded}
                         aria-label="show more"
                     >
+                        <Typography variant="body2" color="grey">
+                            {emprendimiento.toUpperCase()}
+                        </Typography>
                         <ExpandMoreIcon sx={{ color: 'white' }} />
                     </ExpandMore>
                 </CardActions>

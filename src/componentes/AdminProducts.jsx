@@ -35,7 +35,7 @@ function AdminProducts() {
     image: null,
     type: "",
     price: "",
-    rating: "",
+    cantidad: "",
     emprendimiento: "",
   });
 
@@ -65,7 +65,7 @@ function AdminProducts() {
         image: null,
         type: "",
         price: "",
-        rating: "",
+        cantidad: "",
         emprendimiento: "",
       });
     } catch (error) {
@@ -115,12 +115,12 @@ function AdminProducts() {
             />
             <br />
             <br />
-            <label className="label">Rating:</label>
+            <label className="label">Cantidad:</label>
             <input
-              type="number"
-              name="rating"
+              type="string"
+              name="cantidad"
               className="input"
-              value={input.rating}
+              value={input.cantidad}
               onChange={(e) => handlerChange(e)}
             />
             <br />
