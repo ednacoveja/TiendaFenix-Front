@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import accounting from "accounting"
 import { useDispatch } from 'react-redux';
 import { addToCarrito } from "../redux/actions"
+import { useTheme } from '@mui/material/styles';
 
 
 
@@ -31,6 +32,7 @@ const ExpandMore = styled((props) => {
 
 export default function Product({ id, name, description, image, type, price, emprendimiento,cantidad }) {
     const [expanded, setExpanded] = React.useState(false);
+    const theme = useTheme(); 
 
     const handleExpandClick = () => {
         setExpanded(!expanded);
@@ -44,7 +46,7 @@ export default function Product({ id, name, description, image, type, price, emp
 
 
     return (
-        <Card sx={{ maxWidth: 345, backgroundColor: "black" }} >
+        <Card sx={{ maxWidth: 345,  background: theme.palette.background.default }}>
             <CardHeader
                 avatar={
                     <Avatar sx={{ bgcolor: grey[800] }} aria-label="recipe">
@@ -59,7 +61,7 @@ export default function Product({ id, name, description, image, type, price, emp
                 title={
                     <Typography
                         variant='h6'
-                        color="white"
+                        color='theme.palette.background.contrario'
                     >
                         {name}
                     </Typography>
@@ -68,7 +70,7 @@ export default function Product({ id, name, description, image, type, price, emp
                 subheader={
                     <Typography
                         variant='h8'
-                        color="white"
+                        color='theme.palette.background.contrario'
                     >
                         {accounting.formatMoney(price, "$", 0)}
                     </Typography>
@@ -88,9 +90,9 @@ export default function Product({ id, name, description, image, type, price, emp
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to Cart" onClick={() => addToBasket(id)} >
-                    <AddShoppingCart fontSize="large" sx={{ color: 'white' }} />
+                    <AddShoppingCart fontSize="large" sx={{ color: 'theme.palette.background.contrario' }} />
                 </IconButton>
-                <Typography variant="body2" color="white">
+                <Typography variant="body2" color='theme.palette.background.contrario'>
                     {cantidad}
                 </Typography>
                 <ExpandMore
@@ -102,13 +104,13 @@ export default function Product({ id, name, description, image, type, price, emp
                     <Typography variant="body2" color="grey" expand="none">
                         {emprendimiento.toUpperCase()}
                     </Typography>
-                    <ExpandMoreIcon sx={{ color: 'white' }} />
+                    <ExpandMoreIcon sx={{ color: 'theme.palette.background.contrario'}} />
                 </ExpandMore>
 
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
-                    <Typography paragraph color={"white"}>{description}</Typography>
+                    <Typography paragraph color={'theme.palette.background.contrario'}>{description}</Typography>
                 </CardContent>
             </Collapse>
         </Card>

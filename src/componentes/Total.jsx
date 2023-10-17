@@ -3,12 +3,12 @@ import accounting from 'accounting';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import FormaDePagoDialog from './DialogoWpp';
+import { useTheme } from '@mui/material/styles';
 
 export const Total = () => {
+    const theme = useTheme(); 
     const compra = useSelector((state) => state.carrito);
     const suma = compra.reduce((accumulator, item) => accumulator + item.price, 0);
-
-  
 
     const clases = {
         root: {
@@ -16,7 +16,8 @@ export const Total = () => {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            height: "20vh"
+            height: "20vh",
+            color:theme.palette.background.contrario
         },
         button: {
             marginTop: "2rem"
@@ -25,11 +26,8 @@ export const Total = () => {
 
     const [dialogOpen, setDialogOpen] = useState(false);
 
-
     const handleFormSubmit = (name, paymentMethod) => {
-
         handleWhatsAppClick(name, paymentMethod)
-
     };
 
     const handleWhatsAppClick = ({name, paymentMethod}) => {
@@ -47,10 +45,10 @@ export const Total = () => {
         <div style={clases.root}>
             <br />
             <br />
-            <p><font size="4">{compra.length} productos seleccionados</font></p>
+            <p><font size="4" >{compra.length} productos seleccionados</font></p>
             <br />
-            <h5>Total:{accounting.formatMoney(suma, "$", 0)}</h5>
-            <Button style={clases.button} variant="contained" color='primary' onClick={() => setDialogOpen(true)}>
+            <h5 >Total:{accounting.formatMoney(suma, "$", 0)}</h5>
+            <Button style={clases.button} variant="contained" color='error' onClick={() => setDialogOpen(true)}>
                 Contactar por WhatsApp
             </Button>
             <FormaDePagoDialog

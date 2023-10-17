@@ -4,8 +4,10 @@ import {
     filterByType,
 } from "../redux/actions";
 import { Box, FormControl, InputLabel, MenuItem, Select, ThemeProvider, createTheme } from "@mui/material";
+import { useTheme } from '@mui/material/styles';
 
 export default function Filtros() {
+    const theme = useTheme(); 
     const dispatch = useDispatch();
 
     const allProducts = useSelector((state) => state.productos);
@@ -20,14 +22,14 @@ export default function Filtros() {
 
             <Box sx={{ maxWidth: 130 }} >
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" variant="outline" style={{ color: "white"}} >
+                    <InputLabel id="demo-simple-select-label" variant="outline" style={{ color: theme.palette.text.primary}} >
                         Categorías
                     </InputLabel>
                     <Select
                         labelId="demo-simple-select-label"
                         id="demo-simple-select"
                         onChange={(e) => handlerFilterProducts(e)}
-                        style={{ color: "white" }}
+                        style={{ borderStyle:"none"}}
                     >
                         <MenuItem value="all">Todos</MenuItem>
                         <MenuItem value="cosmetica">Cosmetica</MenuItem>

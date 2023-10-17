@@ -7,9 +7,11 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductos, getUserLoged } from '../redux/actions';
 import Footer from './Footer';
+import { useTheme } from '@mui/material/styles';
 
 
 export default function Products() {
+  const theme = useTheme(); 
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.productos);
 
@@ -22,7 +24,7 @@ export default function Products() {
     <div>
       <main>
         <Navbar />
-        <Box sx={{ flexGrow: 1 }} padding={10} style={{ backgroundColor: "black" }}>
+        <Box sx={{ flexGrow: 1 }} padding={10} style={{ background: theme.palette.background.default}}>
           <Grid container spacing={2}>
             {allProducts && allProducts.map((p) => {
               return (

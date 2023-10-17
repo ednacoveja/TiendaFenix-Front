@@ -9,9 +9,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getProductos } from '../redux/actions';
 import CardCarrito from './CardCarrito';
 import Footer from './Footer';
-
+import { useTheme } from '@mui/material/styles';
 
 export default function Carrito() {
+    const theme = useTheme();
     const dispatch = useDispatch();
     const compra = useSelector((state) => state.carrito)
 
@@ -43,7 +44,7 @@ export default function Carrito() {
             <body>
                 <NavBarCarrito />
 
-                <Box sx={{ flexGrow: 1 }} padding={8} style={{ backgroundColor: "black" }}>
+                <Box sx={{ flexGrow: 1 }} padding={8} style={{ background: theme.palette.background.default }}>
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
 

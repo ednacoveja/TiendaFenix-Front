@@ -16,6 +16,7 @@ import InfoCard from "./InfoCard";
 import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../redux/actions';
 import { useEffect } from "react";
+import { useTheme } from '@mui/material/styles';
 
 
 
@@ -23,13 +24,14 @@ import { useEffect } from "react";
 const defaultTheme = createTheme();
 
 export default function Album() {
+    const theme = useTheme();
     const allUsers = useSelector((state) => state.users);
     const dispatch = useDispatch();
-  
+
     useEffect(() => {
-      dispatch(getUser())
+        dispatch(getUser())
     }, [dispatch]);
-    
+
     return (
         <ThemeProvider theme={defaultTheme}>
             <NavBarAbout />
@@ -39,7 +41,7 @@ export default function Album() {
                 {/* Hero unit */}
                 <Box
                     sx={{
-                        bgcolor: 'black',
+                        background: theme.palette.background.default,
                         pt: 8,
                         pb: 6,
                     }}
@@ -49,12 +51,12 @@ export default function Album() {
                             component="h2"
                             variant="h3"
                             align="center"
-                            color="white"
+                            color="theme.palette.background.contrario"
                             gutterBottom
                         >
                             Tienda Fenix
                         </Typography>
-                        <Typography variant="outline" align="center" color="white" paragraph >
+                        <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
                             Surge a partir de la idea de promover emprendimientos norteños que realizan productos más amigables, naturales y nutritivos, recordando que los alimentos y la medicina vienen de la tierra. Para alimentar hábitos más concientes y amorosos siempre es paso a paso...una recomendación simple para todo proceso es "tomar lo que te resuena y soltar lo que no".
                         </Typography>
                         <Stack
@@ -74,7 +76,7 @@ export default function Album() {
                 </Box>
                 <Box
                     sx={{
-                        bgcolor: 'black',
+                        bgcolor: "theme.palette.background.default",
                         pt: 8,
                         pb: 6,
                     }}
@@ -85,12 +87,12 @@ export default function Album() {
                                 component="h3"
                                 variant="h4"
                                 align="center"
-                                color="white"
+                                color="theme.palette.background.contrario"
                                 gutterBottom
                             >
                                 ¿Cómo nos organizamos?
                             </Typography>
-                            <Typography variant="outline" align="center" color="white" paragraph >
+                            <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
                                 Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página son de domingo a miércoles y estarán listos para retirar el sábado de 12 a 16 hs. Si haces un pedido de jueves a sábado, se retira el siguiente sábado. Próximamente podrás venir a nuestro local en el centro de Salta.
                             </Typography>
                         </Container>
@@ -99,12 +101,12 @@ export default function Album() {
                                 component="h3"
                                 variant="h4"
                                 align="center"
-                                color="white"
+                                color="theme.palette.background.contrario"
                                 gutterBottom
                             >
                                 Recomendaciones
                             </Typography>
-                            <Typography variant="outline" align="center" color="white" paragraph >
+                            <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
                                 Te recomendamos que vengas con bolsa, mochila, caja o lo que tengas para poder llevar tus compras. La idea es apostar por mejores productos sin tanto packaging. El origen de cada producto podrás encontrarlo en nuestro catálogo impreso en el local o en las redes de cada emprendimiento.
                             </Typography>
                         </Container>
@@ -114,24 +116,21 @@ export default function Album() {
                             component="h3"
                             variant="h4"
                             align="center"
-                            color="white"
+                            color="theme.palette.background.contrario"
                             gutterBottom
                         >
                             Descuentos
                         </Typography>
-                        <Typography variant="outline" align="center" color="white" paragraph >
+                        <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
                             Si traes +3 frascos de vidrio con tapa, te regalamos un jabón de glicerina y manteca de karité.
                             Si traes +5 frascos, tenés un 5% de descuento en tu compra.
                         </Typography>
                     </Container>
                 </Box>
-                <Typography variant="h3" align="center" color="black" paragraph >
+                <Typography variant="h3" align="center" color="theme.palette.background.default" paragraph >
                     Productores
                 </Typography>
                 <Container sx={{ py: 8 }} maxWidth="md">
-                    {/* End hero unit */}
-
-
                     <Grid container spacing={4}>
                         {allUsers && allUsers.map((p) => {
                             return (
@@ -143,9 +142,7 @@ export default function Album() {
                     </Grid>
                 </Container>
             </main>
-            {/* Footer */}
-            <Footer></Footer>
-            {/* End footer */}
+            <Footer />
         </ThemeProvider>
     );
 }

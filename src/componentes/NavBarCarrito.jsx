@@ -9,10 +9,12 @@ import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import { Badge, MenuItem, Select } from '@mui/material';
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
+import { useTheme } from '@mui/material/styles';
 
 
 
 export default function Navbar() {
+    const theme = useTheme(); 
     const compra = useSelector((state) => state.carrito);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -34,7 +36,7 @@ export default function Navbar() {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="fixed" sx={{ bgcolor: "black", boxShadow: "10px 0.7px grey" }}>
+            <AppBar position="fixed" sx={{background: theme.palette.background.default, boxShadow: "10px 0.7px grey" }}>
                 <Toolbar>
                     <Link to="/">
                         <IconButton

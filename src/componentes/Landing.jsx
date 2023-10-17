@@ -1,12 +1,12 @@
 import './Landing.css'
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
-import Footer from './Footer';
+import FooterLanding from './FooterLanding';
 
-export const Landing = () => {
+
+export const Landing = ({ darkMode, onDarkModeToggle }) => {
 
     const navigate = useNavigate();
-
     async function ALaHome(e) {
         e.preventDefault();
         navigate("/home");
@@ -18,9 +18,9 @@ export const Landing = () => {
 
     return (
         <div>
-            <main className='landing'>
+            <main className={`background ${darkMode ? 'dark-mode' : 'light-mode'}`}>
                 <div className='landArribaCont'>
-                    <div className='logo'>
+                    <div className={`logo ${darkMode ? 'dark-mode' : 'light-mode'}`}>
                         Productos del Norte Argentino
                     </div>
                     <div >
@@ -35,11 +35,7 @@ export const Landing = () => {
                     </div>
                 </div>
             </main>
-
-            <Footer></Footer>
-
+            <FooterLanding darkMode={darkMode} onDarkModeToggle={onDarkModeToggle} />
         </div>
-
-
     )
 }

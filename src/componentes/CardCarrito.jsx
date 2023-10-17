@@ -15,6 +15,7 @@ import accounting from "accounting"
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteItem } from "../redux/actions"
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { useTheme } from '@mui/material/styles';
 
 
 
@@ -31,6 +32,7 @@ const ExpandMore = styled((props) => {
 }));
 
 export default function CardCarrito({ id, name, emprendimiento, description, image, type, price,cantidad }) {
+    const theme = useTheme();
     const [expanded, setExpanded] = React.useState(false);
 
     const handleExpandClick = () => {
@@ -45,7 +47,7 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
 
     return (
         <div>
-            <Card sx={{ maxWidth: 345, backgroundColor: "black" }} >
+            <Card sx={{ maxWidth: 345, backgroundColor:  theme.palette.background.default }} >
                 <CardHeader
                     avatar={
                         <Avatar sx={{ bgcolor: grey[800] }} aria-label="recipe">
@@ -60,7 +62,7 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                     title={
                         <Typography
                             variant='h6'
-                            color="white"
+                            color="theme.palette.background.contrario"
                         >
                             {name}
                         </Typography>
@@ -69,7 +71,7 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                     subheader={
                         <Typography
                             variant='h8'
-                            color="white"
+                            color="theme.palette.background.contrario"
                         >
                             {accounting.formatMoney(price, "$", 0)}
                         </Typography>
@@ -88,9 +90,9 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                 </CardContent>
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to Cart" onClick={() => deleteProduct(id)} >
-                        <DeleteOutlineIcon fontSize="large" sx={{ color: 'white' }} />
+                        <DeleteOutlineIcon fontSize="large" sx={{ color: 'theme.palette.background.contrario' }} />
                     </IconButton>
-                    <Typography variant="body2" color="white">
+                    <Typography variant="body2" color="theme.palette.background.contrario">
                         {cantidad}
                     </Typography>
 
@@ -103,12 +105,12 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                         <Typography variant="body2" color="grey">
                             {emprendimiento.toUpperCase()}
                         </Typography>
-                        <ExpandMoreIcon sx={{ color: 'white' }} />
+                        <ExpandMoreIcon sx={{ color:theme.palette.background.contrario }} />
                     </ExpandMore>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph color={"white"}>{description}</Typography>
+                        <Typography paragraph color={"theme.palette.background.contrario"}>{description}</Typography>
                     </CardContent>
                 </Collapse>
             </Card>
