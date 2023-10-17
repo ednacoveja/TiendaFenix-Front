@@ -20,8 +20,6 @@ import { useTheme } from '@mui/material/styles';
 
 
 
-// TODO remove, this demo shouldn't need to reset the theme.
-const defaultTheme = createTheme();
 
 export default function Album() {
     const theme = useTheme();
@@ -33,9 +31,9 @@ export default function Album() {
     }, [dispatch]);
 
     return (
-        <ThemeProvider theme={defaultTheme}>
+        <div>
             <NavBarAbout />
-            <CssBaseline />
+
 
             <main>
                 {/* Hero unit */}
@@ -143,6 +141,7 @@ export default function Album() {
                 </Container>
             </main>
             <Footer />
-        </ThemeProvider>
+        </div>
+
     );
 }

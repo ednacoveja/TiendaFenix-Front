@@ -2,11 +2,12 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
+import { useTheme } from '@mui/material/styles';
 
 
 function Copyright() {
     return (
-        <Typography variant="body2" color="text.secondary" align="center">
+        <Typography variant="body2" color="theme.palette.background.contrario" align="center">
             {'Copyright © '}
             <Link color="inherit" href="https://github.com/ednacoveja">
                 GitHub
@@ -22,9 +23,10 @@ function Copyright() {
 }
 
 export default function Footer() {
+    const theme = useTheme();
     return (
 
-        <Box sx={{ bgcolor: 'background.paper', p: 1 }} component="footer">
+        <Box sx={{bgcolor: theme.palette.background.default, p: 1 }} component="footer">
             <Copyright />
         </Box>)
 }

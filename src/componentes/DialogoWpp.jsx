@@ -17,8 +17,8 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle>Nombre</DialogTitle>
-      <DialogContent>
+      <DialogTitle style={{  color: 'black' }}>Nombre</DialogTitle>
+      <DialogContent  style={{  color: 'black' }}>
         <form onSubmit={handleSubmit}>
           <TextField
             label="Nombre"
@@ -28,7 +28,7 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
             onChange={(e) => setName(e.target.value)}
             required
           />
-          <DialogTitle>Forma de Pago</DialogTitle>
+          <DialogTitle  style={{  color: 'black' }}>Forma de Pago</DialogTitle>
           <FormControlLabel
             control={
               <Checkbox
@@ -54,7 +54,7 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
               <Button onClick={handleClose} color="secondary">
                 Cerrar
               </Button>
-              <Button type="submit" variant="contained" color="primary">
+              <Button type="submit" variant="contained" color="info">
                 Enviar
               </Button>
 
