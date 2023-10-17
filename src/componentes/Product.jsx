@@ -100,11 +100,12 @@ export default function Product({ id, name, description, image, type, price, emp
                     onClick={handleExpandClick}
                     aria-expanded={expanded}
                     aria-label="show more"
+                    sx={{  color:theme.palette.background.contrario  }} 
                 >
                     <Typography variant="body2" color="grey" expand="none">
                         {emprendimiento.toUpperCase()}
                     </Typography>
-                    <ExpandMoreIcon sx={{ color: 'theme.palette.background.contrario'}} />
+                    <ExpandMoreIcon sx={{ color: theme.palette.background.contrario}} />
                 </ExpandMore>
 
             </CardActions>

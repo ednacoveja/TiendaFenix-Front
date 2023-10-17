@@ -106,12 +106,12 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                         <Typography variant="body2" color="grey">
                             {emprendimiento.toUpperCase()}
                         </Typography>
-                        <ExpandMoreIcon color="grey" />
+                        <ExpandMoreIcon sx={{ color: theme.palette.background.contrario}}  />
                     </ExpandMore>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>
                     <CardContent>
-                        <Typography paragraph color={"theme.palette.background.contrario"}>{description}</Typography>
+                        <Typography paragraph color={theme.palette.background.contrario}>{description}</Typography>
                     </CardContent>
                 </Collapse>
             </Card>
