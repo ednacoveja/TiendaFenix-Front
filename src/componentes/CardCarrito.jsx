@@ -90,7 +90,7 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                 </CardContent>
                 <CardActions disableSpacing>
                     <IconButton aria-label="add to Cart" onClick={() => deleteProduct(id)} >
-                        <DeleteOutlineIcon fontSize="large" sx={{ color: 'theme.palette.background.contrario' }} />
+                        <DeleteOutlineIcon fontSize="large" sx={{ color:theme.palette.background.contrario }} />
                     </IconButton>
                     <Typography variant="body2" color="theme.palette.background.contrario">
                         {cantidad}
@@ -101,11 +101,12 @@ export default function CardCarrito({ id, name, emprendimiento, description, ima
                         onClick={handleExpandClick}
                         aria-expanded={expanded}
                         aria-label="show more"
+                        sx={{  color:theme.palette.background.contrario  }} 
                     >
                         <Typography variant="body2" color="grey">
                             {emprendimiento.toUpperCase()}
                         </Typography>
-                        <ExpandMoreIcon sx={{ color:theme.palette.background.contrario }} />
+                        <ExpandMoreIcon color="grey" />
                     </ExpandMore>
                 </CardActions>
                 <Collapse in={expanded} timeout="auto" unmountOnExit>

@@ -90,7 +90,7 @@ export default function Product({ id, name, description, image, type, price, emp
             </CardContent>
             <CardActions disableSpacing>
                 <IconButton aria-label="add to Cart" onClick={() => addToBasket(id)} >
-                    <AddShoppingCart fontSize="large" sx={{ color: 'theme.palette.background.contrario' }} />
+                    <AddShoppingCart fontSize="large" sx={{ color: theme.palette.background.contrario }} />
                 </IconButton>
                 <Typography variant="body2" color='theme.palette.background.contrario'>
                     {cantidad}
