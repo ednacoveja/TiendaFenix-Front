@@ -5,6 +5,7 @@ import {
 } from "../redux/actions";
 import { Box, FormControl, InputLabel, MenuItem, Select, ThemeProvider, createTheme } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
+import { grey} from "@mui/material/colors";
 
 export default function Filtros() {
     const theme = useTheme(); 
@@ -31,12 +32,12 @@ export default function Filtros() {
                         onChange={(e) => handlerFilterProducts(e)}
                         style={{ borderStyle:"none"}}
                     >
-                        <MenuItem value="all">Todos</MenuItem>
-                        <MenuItem value="cosmetica">Cosmetica</MenuItem>
-                        <MenuItem value="alimentos">Alimentos</MenuItem>
-                        <MenuItem value="condimentos">Condimentos</MenuItem>
-                        <MenuItem value="plantas">Plantas</MenuItem>
-                        <MenuItem value="aromas">Aromas y Velas</MenuItem>
+                        <MenuItem value="all" style={{ color:grey[900]}}>Todos</MenuItem>
+                        <MenuItem value="cosmetica"style={{ color:grey[900]}}>Cosmetica</MenuItem>
+                        <MenuItem value="alimentos"style={{ color:grey[900]}}>Alimentos</MenuItem>
+                        <MenuItem value="condimentos"style={{ color:grey[900]}}>Condimentos</MenuItem>
+                        <MenuItem value="plantas"style={{ color:grey[900]}}>Plantas</MenuItem>
+                        <MenuItem value="aromas" style={{ color:grey[900]}}>Aromas y Velas</MenuItem>
                     </Select>
                 </FormControl>
             </Box>
