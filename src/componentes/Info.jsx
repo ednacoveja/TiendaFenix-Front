@@ -91,7 +91,7 @@ export default function Album() {
                                 ¿Cómo nos organizamos?
                             </Typography>
                             <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
-                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página son de domingo a miércoles y estarán listos para retirar el sábado de 12 a 16 hs. Si haces un pedido de jueves a sábado, se retira el siguiente sábado. Próximamente podrás venir a nuestro local en el centro de Salta.
+                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página estarán listos para retirar luego de 2 dias sin contar los fines de semana. Los horarios son de lunes a viernes de 12 a 14hs en el centro de Salta.
                             </Typography>
                         </Container>
                         <Container maxWidth="sm">

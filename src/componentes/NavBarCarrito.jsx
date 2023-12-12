@@ -60,7 +60,7 @@ export default function Navbar() {
                     </Typography>
 
                     <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
-                        Podrá retirar su compra el sábado de 12 a 16 hs
+                        Su pedido estará listo para retirar en dos dias sin contar el fin de semana
                     </Typography>
                     <Typography>
                         <Button color="inherit" component="button" variant="outline" onClick={(e) => {
