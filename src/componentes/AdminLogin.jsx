@@ -8,7 +8,6 @@ function AdminLogin({ onLogin }) {
   const handleLogin = () => {
     // Verifica si la contraseña ingresada es correcta
     if (password ===contraseñaEnv ) {
-        console.log(password)
       onLogin();
     } else {
       alert("Contraseña incorrecta. Intenta de nuevo.");
