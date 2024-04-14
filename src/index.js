@@ -12,7 +12,7 @@ import axios from "axios";
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 const queryClient = new QueryClient()
-axios.defaults.baseURL = "https://fenix-back.ednacoveja.repl.co";
+axios.defaults.baseURL = "https://back-fenix.onrender.com/";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
