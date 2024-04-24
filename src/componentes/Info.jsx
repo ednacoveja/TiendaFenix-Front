@@ -91,7 +91,7 @@ export default function Album() {
                                 ¿Cómo nos organizamos?
                             </Typography>
                             <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
-                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página estarán listos para retirar luego de 2 dias sin contar los fines de semana. Los horarios son de lunes a viernes de 12 a 14hs en el centro de Salta.
+                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página estarán listos para retirar al dia siguiente de tu compra. Los dias y horarios son de Martes a Sábados de 12 a 15hs en Balcarce 427.
                             </Typography>
                         </Container>
                         <Container maxWidth="sm">
@@ -105,25 +105,10 @@ export default function Album() {
                                 Recomendaciones
                             </Typography>
                             <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
-                                Te recomendamos que vengas con bolsa, mochila, caja o lo que tengas para poder llevar tus compras. La idea es apostar por mejores productos sin tanto packaging. El origen de cada producto podrás encontrarlo en nuestro catálogo impreso en el local o en las redes de cada emprendimiento.
+                                Te recomendamos que vengas con bolsa o lo que quieras para llevar tu compra. La idea es apostar por mejores productos sin tanto packaging. El origen de cada producto podrás encontrarlo en las redes de cada emprendimiento.
                             </Typography>
                         </Container>
                     </Grid>
-                    <Container maxWidth="sm">
-                        <Typography
-                            component="h3"
-                            variant="h4"
-                            align="center"
-                            color="theme.palette.background.contrario"
-                            gutterBottom
-                        >
-                            Descuentos
-                        </Typography>
-                        <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
-                            Si traes +3 frascos de vidrio con tapa, te regalamos un jabón de glicerina y manteca de karité.
-                            Si traes +5 frascos, tenés un 5% de descuento en tu compra.
-                        </Typography>
-                    </Container>
                 </Box>
                 <Typography variant="h3" align="center" color="theme.palette.background.default" paragraph >
                     Productores

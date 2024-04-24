@@ -60,7 +60,7 @@ export default function Navbar() {
                     </Typography>
 
                     <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
-                        Su pedido estará listo para retirar en dos dias sin contar el fin de semana
+                        Martes a Sábados de 12 a 15hs en Balcarce 427
                     </Typography>
                     <Typography>
                         <Button color="inherit" component="button" variant="outline" onClick={(e) => {
