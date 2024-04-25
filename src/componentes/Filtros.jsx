@@ -23,7 +23,7 @@ export default function Filtros() {
 
             <Box sx={{ maxWidth: 130 }} >
                 <FormControl fullWidth>
-                    <InputLabel id="demo-simple-select-label" variant="outline" style={{ color: theme.palette.text.primary}} >
+                    <InputLabel id="demo-simple-select-label" variant="outlined" style={{ color: theme.palette.text.primary}} >
                         Categorías
                     </InputLabel>
                     <Select
@@ -33,10 +33,10 @@ export default function Filtros() {
                         style={{ borderStyle:"none"}}
                     >
                         <MenuItem value="all" style={{ color:grey[900]}}>Todos</MenuItem>
-                        <MenuItem value="cosmetica"style={{ color:grey[900]}}>Cosmetica</MenuItem>
-                        <MenuItem value="alimentos"style={{ color:grey[900]}}>Alimentos</MenuItem>
-                        <MenuItem value="condimentos"style={{ color:grey[900]}}>Condimentos</MenuItem>
-                        <MenuItem value="plantas"style={{ color:grey[900]}}>Plantas</MenuItem>
+                        <MenuItem value="cosmetica" style={{ color:grey[900]}}>Cosmetica</MenuItem>
+                        <MenuItem value="alimentos" style={{ color:grey[900]}}>Alimentos</MenuItem>
+                        <MenuItem value="condimentos" style={{ color:grey[900]}}>Condimentos</MenuItem>
+                        <MenuItem value="plantas" style={{ color:grey[900]}}>Plantas</MenuItem>
                         <MenuItem value="aromas" style={{ color:grey[900]}}>Aromas y Velas</MenuItem>
                     </Select>
                 </FormControl>
