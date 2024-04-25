@@ -25,6 +25,8 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
             variant="outlined"
             fullWidth
             value={name}
+            color="info"
+            InputProps={{ style: { color: 'black' } }} 
             onChange={(e) => setName(e.target.value)}
             required
           />
