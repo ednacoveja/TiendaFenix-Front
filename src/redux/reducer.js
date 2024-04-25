@@ -47,10 +47,11 @@ const rootReducer = (state = initialState, action) => {
             };
 
         case "GET_PRODUCTS":
+            const randomProductos = action.payload.sort(() => Math.random() - 0.5);
             return {
                 ...state,
-                productos: action.payload,
-                allProducts: action.payload,
+                productos: randomProductos,
+                allProducts: randomProductos,
             }
         case "CREATE_POST":
             console.log(action.payload);
@@ -73,10 +74,11 @@ const rootReducer = (state = initialState, action) => {
                 productos: filter,
             };
         case "GET_USERS":
+            const randomUsers = action.payload.sort(() => Math.random() - 0.5);
             return {
                 ...state,
-                users: action.payload,
-                allUsers: action.payload,
+                users: randomUsers,
+                allUsers: randomUsers,
             }
         case "CREATE_USER":
             console.log(action.payload);

@@ -14,19 +14,12 @@ export default function Products() {
   const theme = useTheme(); 
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.productos);
-  const [randomProducts, setRandomProducts]=React.useState([]);
 
 
   useEffect(() => {
     dispatch(getProductos())
   }, [dispatch]);
 
-  useEffect(() => {
-    if(allProducts){
-      const mezclarProducts=[...allProducts].sort(()=>Math.random()-0.5);
-      setRandomProducts(mezclarProducts)
-    }
-  }, [allProducts]);
 
   return (
     <div>
@@ -34,7 +27,7 @@ export default function Products() {
         <Navbar />
         <Box sx={{ flexGrow: 1 }} padding={10} style={{ background: theme.palette.background.default}}>
           <Grid container spacing={2}>
-            {allProducts && randomProducts.map((p) => {
+            {allProducts && allProducts.map((p) => {
               return (
                 <Grid item xs={12} sm={6} md={5} lg={4} key={p._id}>
                   <Product id={p._id} name={p.name} cantidad={p.cantidad}emprendimiento={p.emprendimiento} price={p.price} description={p.description} image={p.image} type={p.type} />

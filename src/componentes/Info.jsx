@@ -20,23 +20,14 @@ import { useTheme } from '@mui/material/styles';
 
 
 
-
 export default function Info() {
     const theme = useTheme();
     const allUsers = useSelector((state) => state.users);
     const dispatch = useDispatch();
-    const [randomUsers,setRandomUsers]= React.useState([]);
 
     useEffect(() => {
         dispatch(getUser())
     }, [dispatch]);
-
-    useEffect(() => {
-        if (allUsers) {
-            const mezclarUsers = [...allUsers].sort(() => Math.random() - 0.5);
-            setRandomUsers(mezclarUsers);
-        }
-    }, [allUsers]);
 
     return (
         <div>
@@ -123,7 +114,7 @@ export default function Info() {
                 </Typography>
                 <Container sx={{ py: 8 }} maxWidth="md">
                     <Grid container spacing={4}>
-                        {allUsers && randomUsers.map((p) => {
+                        {allUsers && allUsers .map((p) => {
                             return (
                                 <Grid item xs={12} sm={6} md={4} key={p._id}>
                                     <InfoCard id={p._id} nombre={p.nombre} description={p.description} image={p.image} instagram={p.instagram} />
