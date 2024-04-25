@@ -21,14 +21,22 @@ import { useTheme } from '@mui/material/styles';
 
 
 
-export default function Album() {
+export default function Info() {
     const theme = useTheme();
     const allUsers = useSelector((state) => state.users);
     const dispatch = useDispatch();
+    const [randomUsers,setRandomUsers]= React.useState([]);
 
     useEffect(() => {
         dispatch(getUser())
     }, [dispatch]);
+
+    useEffect(() => {
+        if (allUsers) {
+            const mezclarUsers = [...allUsers].sort(() => Math.random() - 0.5);
+            setRandomUsers(mezclarUsers);
+        }
+    }, [allUsers]);
 
     return (
         <div>
@@ -54,7 +62,7 @@ export default function Album() {
                         >
                             Tienda Fenix
                         </Typography>
-                        <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
+                        <Typography variant="outlined" align="center" color="theme.palette.background.contrario" paragraph >
                             Surge a partir de la idea de promover emprendimientos norteños que realizan productos más amigables, naturales y nutritivos, recordando que los alimentos y la medicina vienen de la tierra. Para alimentar hábitos más concientes y amorosos siempre es paso a paso...una recomendación simple para todo proceso es "tomar lo que te resuena y soltar lo que no".
                         </Typography>
                         <Stack
@@ -90,7 +98,7 @@ export default function Album() {
                             >
                                 ¿Cómo nos organizamos?
                             </Typography>
-                            <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
+                            <Typography variant="outlined" align="center" color="theme.palette.background.contrario" paragraph >
                                 Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página estarán listos para retirar al dia siguiente de tu compra. Los dias y horarios son de Martes a Sábados de 12 a 15hs en Balcarce 427.
                             </Typography>
                         </Container>
@@ -104,7 +112,7 @@ export default function Album() {
                             >
                                 Recomendaciones
                             </Typography>
-                            <Typography variant="outline" align="center" color="theme.palette.background.contrario" paragraph >
+                            <Typography variant="outlined" align="center" color="theme.palette.background.contrario" paragraph >
                                 Te recomendamos que vengas con bolsa o lo que quieras para llevar tu compra. La idea es apostar por mejores productos sin tanto packaging. El origen de cada producto podrás encontrarlo en las redes de cada emprendimiento.
                             </Typography>
                         </Container>
@@ -115,7 +123,7 @@ export default function Album() {
                 </Typography>
                 <Container sx={{ py: 8 }} maxWidth="md">
                     <Grid container spacing={4}>
-                        {allUsers && allUsers.map((p) => {
+                        {allUsers && randomUsers.map((p) => {
                             return (
                                 <Grid item xs={12} sm={6} md={4} key={p._id}>
                                     <InfoCard id={p._id} nombre={p.nombre} description={p.description} image={p.image} instagram={p.instagram} />
