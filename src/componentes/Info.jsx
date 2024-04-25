@@ -117,7 +117,7 @@ export default function Album() {
                     <Grid container spacing={4}>
                         {allUsers && allUsers.map((p) => {
                             return (
-                                <Grid item xs={12} sm={6} md={4}>
+                                <Grid item xs={12} sm={6} md={4} key={p._id}>
                                     <InfoCard id={p._id} nombre={p.nombre} description={p.description} image={p.image} instagram={p.instagram} />
                                 </Grid>
                             )
