@@ -25,7 +25,7 @@ const EditProduct = ({ product, onSave }) => {
     return (
         <div>
             {editing ? (
-                <div>
+                <form onSubmit={handleSave}>
                     <input
                         type="text"
                         name="name"
@@ -56,7 +56,9 @@ const EditProduct = ({ product, onSave }) => {
                         value={editedProduct.type}
                         onChange={handleChange}
                     />
-                </div>
+                    <button type="submit">Guardar</button>
+                    <button type="button" onClick={handleCancel}>Cancelar</button>
+                </form>
             ) : (
                 <div>
                     <p>Nombre: {product.name}</p>
