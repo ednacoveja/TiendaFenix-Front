@@ -29,7 +29,7 @@ export default function Carrito() {
 
                 {compra && compra.map((p) => {
                     return (
-                        <Grid item xs={12} sm={8} md={6} lg={6}>
+                        <Grid item xs={12} sm={8} md={6} lg={6} key={p._id}>
                             <CardCarrito id={p._id} name={p.name} cantidad={p.cantidad}  emprendimiento={p.emprendimiento} price={p.price} description={p.description} image={p.image} type={p.type} />
                         </Grid>
                     )
