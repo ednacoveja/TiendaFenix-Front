@@ -34,7 +34,7 @@ export const Total = () => {
         // Crear un mensaje prellenado para WhatsApp con los nombres de los productos, el total y la forma de pago
         const productos = compra.map(item => `${item.name} (${item.emprendimiento})`);
         const formaDePagoText = paymentMethod ? `Forma de Pago: ${paymentMethod}\n` : "";
-        const mensaje = `¡Hola! Mi nombre es ${name.charAt(0).toUpperCase() + name.slice(1)}. Estoy interesado en comprar los siguientes productos:\n\n${productos.join('\n')}\n\n${formaDePagoText}Total: ${accounting.formatMoney(suma, "$", 0)}.`;
+        const mensaje = `¡Hola! Mi nombre es ${name.charAt(0).toUpperCase() + name.slice(1)}. Quisiera comprar los siguientes productos:\n\n${productos.join('\n')}\n\n${formaDePagoText}Total: ${accounting.formatMoney(suma, "$", 0)}.`;
 
         // Crear el enlace de WhatsApp con el mensaje y abrirlo en una nueva ventana
         const whatsappURL = `https://wa.me/543876305279/?text=${encodeURIComponent(mensaje)}`;
