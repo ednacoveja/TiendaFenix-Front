@@ -104,7 +104,7 @@ export default function Info() {
                                 Recomendaciones
                             </Typography>
                             <Typography variant="outlined" align="center" color="theme.palette.background.contrario" paragraph >
-                                Te recomendamos que vengas con bolsa o lo que quieras para llevar tu compra. La idea es apostar por mejores productos sin tanto packaging. El origen de cada producto podrás encontrarlo en las redes de cada emprendimiento.
+                                Te recomendamos que vengas con bolsa o lo que quieras para llevar tu compra. La idea es apostar por mejores productos sin tanto packaging. El origen de cada producto podrás encontrarlo en la página y en las redes de cada emprendimiento.
                             </Typography>
                         </Container>
                     </Grid>
