@@ -13,6 +13,11 @@ export const Landing = ({ darkMode, onDarkModeToggle }) => {
     e.preventDefault();
     navigate("/about");
   }
+  async function about(e) {
+    e.preventDefault();
+    navigate("/carrito");
+  }
+
   function refreshPage() {
     window.location.reload(true); // Recargar la página sin caché
   }
@@ -40,6 +45,14 @@ export const Landing = ({ darkMode, onDarkModeToggle }) => {
           <div>
             <button className="btnCreCu" onClick={(e) => about(e)}>
               Info
+            </button>
+          </div>
+        </div>
+        <div className="landArribaCont">
+          <div></div>
+          <div>
+            <button className="btnCreCu" onClick={(e) => about(e)}>
+              Carrito
             </button>
           </div>
         </div>

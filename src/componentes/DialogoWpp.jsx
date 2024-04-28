@@ -53,7 +53,7 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
 
           <DialogActions>
             <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <Button onClick={handleClose} color="secondary">
+              <Button onClick={handleClose} color="grey" variant="contained">
                 Cerrar
               </Button>
               <Button type="submit" variant="contained" color="info">
