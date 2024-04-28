@@ -32,7 +32,7 @@ export const Landing = ({ darkMode, onDarkModeToggle }) => {
         </div>
         <div className="landArribaCont">
           <div className={`logo ${darkMode ? "dark-mode" : "light-mode"}`}>
-            Emprendimientos del Norte Argentino
+            Emprendedores del Norte Argentino
           </div>
           <div>
             <button className="btnCreCu" onClick={(e) => ALaHome(e)}>
