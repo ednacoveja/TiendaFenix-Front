@@ -32,7 +32,7 @@ export default function Footer({ darkMode, onDarkModeToggle }) {
     };
 
     return (
-        <Box sx={{ bgcolor: theme.palette.background.default, p: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} component="footer">
+        <Box sx={{ bgcolor: theme.palette.background.default, p: 2, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} component="footer">
             <Copyright />
             <Button onClick={handleDarkModeToggle} style={{ color: theme.palette.secondary.main }}>
                 {darkMode ? <LightModeIcon /> : <DarkModeIcon />}

@@ -49,6 +49,7 @@ body{
     font-size: 37px;
     color: white;
 }
+
 .btnCreCu {
     all: unset;
     background-image: url('../../public/images/logoRedondo.png');
@@ -60,16 +61,46 @@ body{
     border-radius: 100px;
     font-size: 19px;
     cursor: pointer;
-    border: 0.5px solid rgb(188, 220, 255);
+    border: 0.01px solid rgba(192, 218, 247, 0.377);
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     text-decoration: none;
 }
 
 .btnCreCu:hover {
     background-image: linear-gradient(to right, rgba(78, 140, 190, 0.363), rgba(83, 170, 211, 0.288), rgba(26, 93, 138, 0.349));
-    color: rgb(128, 237, 245);
     text-decoration: none;
 }
+
+
+
+
+.refreshContainer {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1000;
+  }
+
+.btnRefresh {
+    all: unset;
+    background-image: url('../../public/images/logoRedondo.png');
+    color: white; /* Color del texto del botón */
+    width: fit-content; /* Ajusta el ancho del botón al contenido */
+    margin: 100px auto; /* Margen superior e inferior de 20px y centrado horizontalmente */
+    padding: 15px 30px; /* Padding interno del botón */
+    border-radius: 50px; /* Borde redondeado */
+    font-size: 17px; /* Tamaño de fuente */
+    cursor: pointer; /* Cursor tipo puntero al pasar sobre el botón */
+    transition: background-color 0.3s ease; /* Transición suave en cambio de color de fondo */
+  }
+  
+  .btnRefresh:hover {
+    background-image: linear-gradient(to right, rgba(78, 140, 190, 0.363), rgba(83, 170, 211, 0.288), rgba(26, 93, 138, 0.349));
+    text-decoration: none;
+  }
+
+
+
 
 .landArribaCont {
     width: 100%;

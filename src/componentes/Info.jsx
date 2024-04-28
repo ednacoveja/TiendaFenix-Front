@@ -110,7 +110,7 @@ export default function Info() {
                     </Grid>
                 </Box>
                 <Typography variant="h3" align="center" color="theme.palette.background.default" paragraph >
-                    Productores
+                    Emprendimientos
                 </Typography>
                 <Container sx={{ py: 8 }} maxWidth="md">
                     <Grid container spacing={4}>
