@@ -17,11 +17,11 @@ function FormaDePagoDialog({ open, onClose, onSubmit }) {
 
   return (
     <Dialog open={open} onClose={handleClose}>
-      <DialogTitle style={{  color: 'black' }}>Nombre</DialogTitle>
+      <DialogTitle style={{  color: 'black' }}>Nombre y Apellido</DialogTitle>
       <DialogContent  style={{  color: 'black' }}>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Nombre"
+            label="Nombre y Apellido"
             variant="outlined"
             fullWidth
             value={name}
