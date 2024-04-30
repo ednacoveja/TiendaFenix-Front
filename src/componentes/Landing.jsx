@@ -13,7 +13,7 @@ export const Landing = ({ darkMode, onDarkModeToggle }) => {
     e.preventDefault();
     navigate("/about");
   }
-  async function about(e) {
+  async function carrito(e) {
     e.preventDefault();
     navigate("/carrito");
   }
@@ -32,7 +32,7 @@ export const Landing = ({ darkMode, onDarkModeToggle }) => {
         </div>
         <div className="landArribaCont">
           <div className={`logo ${darkMode ? "dark-mode" : "light-mode"}`}>
-            Emprendedores del Norte Argentino
+            Emprendedores de Salta Argentina
           </div>
           <div>
             <button className="btnCreCu" onClick={(e) => ALaHome(e)}>
@@ -51,7 +51,7 @@ export const Landing = ({ darkMode, onDarkModeToggle }) => {
         <div className="landArribaCont">
           <div></div>
           <div>
-            <button className="btnCreCu" onClick={(e) => about(e)}>
+            <button className="btnCreCu" onClick={(e) => carrito(e)}>
               Carrito
             </button>
           </div>

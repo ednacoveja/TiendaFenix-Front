@@ -54,7 +54,7 @@ export default function Info() {
                             Tienda Fenix
                         </Typography>
                         <Typography variant="outlined" align="center" color="theme.palette.background.contrario" paragraph >
-                            Surge a partir de la idea de promover emprendimientos norteños que realizan productos más amigables, naturales y nutritivos, recordando que los alimentos y la medicina vienen de la tierra. Para alimentar hábitos más concientes y amorosos siempre es paso a paso...una recomendación simple para todo proceso es "tomar lo que te resuena y soltar lo que no".
+                            Promovemos emprendimientos salteños que realizan productos más amigables, naturales y nutritivos, recordando que los alimentos y la medicina vienen de la tierra. Para alimentar hábitos más concientes y amorosos siempre es paso a paso. Una recomendación simple para todo proceso es "tomar lo que te resuena y soltar lo que no".
                         </Typography>
                         <Stack
                             sx={{ pt: 4 }}
