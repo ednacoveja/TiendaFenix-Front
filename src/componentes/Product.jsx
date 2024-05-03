@@ -63,7 +63,7 @@ export default function Product({ id, name, description, image, type, price, emp
                         variant='h6'
                         color='theme.palette.background.contrario'
                     >
-                        {name}
+                        {name.charAt(0).toUpperCase() + name.slice(1)}
                     </Typography>
                 }
 
@@ -111,7 +111,7 @@ export default function Product({ id, name, description, image, type, price, emp
             </CardActions>
             <Collapse in={expanded} timeout="auto" unmountOnExit>
                 <CardContent>
-                    <Typography paragraph color={'theme.palette.background.contrario'}>{description}</Typography>
+                    <Typography paragraph color={'theme.palette.background.contrario'}>{description.charAt(0).toUpperCase() + description.slice(1)}</Typography>
                 </CardContent>
             </Collapse>
         </Card>
