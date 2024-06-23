@@ -60,7 +60,7 @@ export default function Navbar() {
                     </Typography>
 
                     <Typography variant="h7" component="div" sx={{ flexGrow: 1 }}>
-                        Miércoles y Jueves de 12 a 15hs en Balcarce 427
+                        Miércoles a Viernes de 11 a 14hs en Balcarce 427
                     </Typography>
                     <Typography>
                         <Button color="inherit" component="button" variant="outline" onClick={(e) => {

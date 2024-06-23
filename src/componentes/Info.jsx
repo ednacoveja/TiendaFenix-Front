@@ -90,7 +90,7 @@ export default function Info() {
                                 ¿Cómo nos organizamos?
                             </Typography>
                             <Typography variant="outlined" align="center" color="theme.palette.background.contrario" paragraph >
-                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página estarán listos para retirar los Miércoles y Jueves de 12 a 15hs en Balcarce 427. 
+                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página estarán listos para retirar de Miércoles a Viernes de 11 a 14hs en Balcarce 427. 
                             </Typography>
                         </Container>
                         <Container maxWidth="sm">
