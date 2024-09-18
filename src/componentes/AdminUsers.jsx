@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { createUser, getUser, deleteUser } from "../redux/actions";
+import { createUser, getUser, deleteUser, editUser } from "../redux/actions";
 import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import "./Admin.css"
 import Swal from "sweetalert2";
+import EditUser from "./EditUsers";
 
 function AdminUsers() {
 
@@ -15,6 +16,20 @@ function AdminUsers() {
   }, [dispatch]);
 
   const usuarios = useSelector((state) => state.users);
+  const [editingUser, setEditingUser] = useState(null);
+
+  const handleEditUser = (userId) => {
+    setEditingUser(userId);
+  };
+
+  const handleSaveUser = async (editedUser) => {
+    try {
+      await dispatch(editUser(editedUser));
+      setEditingUser(null);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
   async function borrarUser(id) {
     let paranoid = false;
@@ -163,11 +178,16 @@ function AdminUsers() {
                       <TableCell align="right">
                       </TableCell>
                       <TableCell align="right">
-                        <button
-                          className="buttonUsuario"
-                        >
-                          Editar
-                        </button>
+                      {editingUser === p._id ? (
+                      <EditUser user={p} onSave={(editedUser) => handleSaveUser(editedUser,p._id)} />
+                    ) : (
+                      <button
+                        onClick={() => handleEditUser(p._id)}
+                        className="buttonUsuario"
+                      >
+                        Editar
+                      </button>
+                    )}
                       </TableCell>
                       <TableCell align="right">
                         <button

@@ -93,6 +93,13 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 users: filterU,
             };
+            case "EDIT_USER":
+                return {
+                    ...state,
+                    users: state.users.map((user) =>
+                        user._id === action.payload._id ? action.payload : user
+                    ),
+                };
 
 
         default:

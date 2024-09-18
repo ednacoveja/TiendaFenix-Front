@@ -133,5 +133,14 @@ export function deleteUser(id) {
   }
 }
 
+export const editUser = (form) => async (dispatch) => {
+  try {
+    const response = await axios.put(`/users/${form._id}`, form);
+    dispatch({ type: "EDIT_USER", payload: response.data });
+    dispatch(getUser());
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 
