@@ -90,7 +90,7 @@ export default function Info() {
                                 ¿Cómo nos organizamos?
                             </Typography>
                             <Typography variant="outlined" align="center" color="theme.palette.background.contrario" paragraph >
-                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página que sean hasta los dias Miércoles, estarán listos para retirar ese mismo Viernes de 12 a 15hs en Balcarce 427. Si realizas un pedido a partir del dia Jueves, estará listo para el Viernes de la próxima semana.
+                                Somos pequeños emprendedores apostando por productos más concientes y artesanales, por lo que los encargos en la página que sean hasta los dias Martes estarán listos para retirar ese mismo Jueves de 12 a 15hs en Balcarce 427. Si realizas un pedido a partir del dia Miercoles, estará listo para el Jueves de la próxima semana.
                             </Typography>
                         </Container>
                         <Container maxWidth="sm">
